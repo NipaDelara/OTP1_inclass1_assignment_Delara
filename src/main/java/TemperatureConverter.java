@@ -3,10 +3,10 @@ public class TemperatureConverter {
         return (fahrenheit - 32) * 5/9;
     }
     public double celsiusToFahrenheit(double celsius){
-        return (celsius * 5/9 )+ 32 ;
+        return (celsius * 9/5 )+ 32 ;
     }
     public boolean isExtremeTemperature(double celsius){
-        if(celsius < -40 || celsius > 50 ){
+        if (celsius < -40 || celsius > 50 ){
             return true;
         }else {
             return false;
