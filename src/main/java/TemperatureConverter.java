@@ -5,11 +5,10 @@ public class TemperatureConverter {
     public double celsiusToFahrenheit(double celsius){
         return (celsius * 9/5 )+ 32 ;
     }
-    public boolean isExtremeTemperature(double celsius){
-        if (celsius < -40 || celsius > 50 ){
-            return true;
-        }else {
-            return false;
-        }
+    public boolean isExtremeTemperature(double celsius) {
+        return celsius < -40 || celsius > 50;
+    }
+    public double kelvinToCelsius(double kelvin) {
+        return kelvin - 273.15;
     }
 }
