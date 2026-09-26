@@ -11,4 +11,28 @@ public class TemperatureConverter {
     public double kelvinToCelsius(double kelvin) {
         return kelvin - 273.15;
     }
+
+    public static void main(String[] args) {
+
+        TemperatureConverter converter = new TemperatureConverter();
+
+        double celsius = 25;
+
+        System.out.println("Temperature Converter");
+        System.out.println("---------------------");
+        System.out.println("25 C = "
+                + converter.celsiusToFahrenheit(celsius)
+                + " F");
+
+        System.out.println("77 F = "
+                + converter.fahrenheitToCelsius(77)
+                + " C");
+
+        System.out.println("300 K = "
+                + converter.kelvinToCelsius(300)
+                + " C");
+
+        System.out.println("Is 60 C extreme? "
+                + converter.isExtremeTemperature(60));
+    }
 }
