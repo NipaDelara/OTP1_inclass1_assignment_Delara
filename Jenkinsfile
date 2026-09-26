@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/NipaDelara/OTP1_inclass1_assignment_Delara.git'
+                 git branch: 'main',
+                    url:'https://github.com/NipaDelara/OTP1_inclass1_assignment_Delara.git'
             }
         }
         stage('Build') {
