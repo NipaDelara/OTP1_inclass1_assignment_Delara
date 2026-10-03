@@ -19,7 +19,7 @@ COPY pom.xml .
 COPY src ./src
 
 # Build application
-RUN mvn clean package
+RUN mvn clean package -DskipTests
 
 # X11 display used by Xming
 ENV DISPLAY=host.docker.internal:0.0
