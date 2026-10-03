@@ -5,32 +5,27 @@ import java.sql.Statement;
 
 public class DBConnection {
 
-    // Local: localhost
-    // Docker: values can be provided using environment variables
-    private static final String URL =
-            System.getenv().getOrDefault(
-                    "DB_URL",
-                    "jdbc:mariadb://localhost:3306/temperature_converter"
-            );
+    // Default = local Windows MariaDB
+    // Docker can override these values with environment variables
+    private static final String URL = System.getenv().getOrDefault(
+            "DB_URL",
+            "jdbc:mariadb://localhost:3306/temperature_converter"
+    );
 
-    private static final String USER =
-            System.getenv().getOrDefault(
-                    "DB_USER",
-                    "root"
-            );
+    private static final String USER = System.getenv().getOrDefault(
+            "DB_USER",
+            "root"
+    );
 
-    private static final String PASSWORD =
-            System.getenv().getOrDefault(
-                    "DB_PASSWORD",
-                    "12345"
-            );
+    private static final String PASSWORD = System.getenv().getOrDefault(
+            "DB_PASSWORD",
+            "12345"
+    );
 
-    // Open MariaDB connection
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
-    // Create database tables
     public static void initializeDatabase() {
 
         String createTemperatureUnitTable = """
