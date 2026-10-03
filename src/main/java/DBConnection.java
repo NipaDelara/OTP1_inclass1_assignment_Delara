@@ -6,11 +6,14 @@ import java.sql.Statement;
 public class DBConnection {
 
     private static final String URL =
-            "jdbc:sqlite:temperature_converter.db";
+            "jdbc:mariadb://localhost:3306/temperature_converter";
 
-    // Open database connection
+    private static final String USER = "root";
+    private static final String PASSWORD = "12345";
+
+    // Open MariaDB connection
     public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(URL);
+        return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
     // Create database tables
@@ -18,44 +21,40 @@ public class DBConnection {
 
         String createTemperatureUnitTable = """
                 CREATE TABLE IF NOT EXISTS temperature_unit (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    name TEXT NOT NULL UNIQUE,
-                    symbol TEXT NOT NULL
-                );
+                    id INT PRIMARY KEY AUTO_INCREMENT,
+                    name VARCHAR(100) NOT NULL UNIQUE,
+                    symbol VARCHAR(20) NOT NULL
+                )
                 """;
 
         String createTempRecordTable = """
                 CREATE TABLE IF NOT EXISTS temp_record (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    input_value REAL NOT NULL,
-                    input_unit_id INTEGER NOT NULL,
-                    output_value REAL NOT NULL,
-                    output_unit_id INTEGER NOT NULL,
-                    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
-
+                    id INT PRIMARY KEY AUTO_INCREMENT,
+                    input_value DOUBLE NOT NULL,
+                    input_unit_id INT NOT NULL,
+                    output_value DOUBLE NOT NULL,
+                    output_unit_id INT NOT NULL,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                     FOREIGN KEY (input_unit_id)
                         REFERENCES temperature_unit(id),
-
                     FOREIGN KEY (output_unit_id)
                         REFERENCES temperature_unit(id)
-                );
+                )
                 """;
 
         try (Connection connection = getConnection();
              Statement statement = connection.createStatement()) {
 
-            // Enable SQLite foreign keys
-            statement.execute("PRAGMA foreign_keys = ON");
-
             statement.execute(createTemperatureUnitTable);
             statement.execute(createTempRecordTable);
 
-            System.out.println("Database initialized successfully.");
+            System.out.println(
+                    "MariaDB database initialized successfully."
+            );
 
         } catch (SQLException e) {
             System.err.println(
-                    "Database initialization failed: "
-                            + e.getMessage()
+                    "Database initialization failed: " + e.getMessage()
             );
         }
     }

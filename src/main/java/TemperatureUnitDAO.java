@@ -7,11 +7,11 @@ import java.util.List;
 
 public class TemperatureUnitDAO {
 
-    // Add a temperature unit to the database
+    // Add a temperature unit to MariaDB
     public void addUnit(TemperatureUnit unit) {
 
         String sql = """
-                INSERT OR IGNORE INTO temperature_unit (name, symbol)
+                INSERT IGNORE INTO temperature_unit (name, symbol)
                 VALUES (?, ?)
                 """;
 
@@ -32,7 +32,7 @@ public class TemperatureUnitDAO {
         }
     }
 
-    // Get all temperature units from the database
+    // Get all temperature units from MariaDB
     public List<TemperatureUnit> getAllUnits() {
 
         List<TemperatureUnit> units = new ArrayList<>();
