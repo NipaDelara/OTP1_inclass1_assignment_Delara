@@ -1,10 +1,10 @@
 pipeline {
     agent any
 
-environment {
-    DOCKER_IMAGE = 'nipa93/temperature-converter'
-    PATH = "/opt/homebrew/bin:/opt/homebrew/sbin:${env.PATH}"
-}
+ environment {
+     DOCKER_IMAGE = 'nipa93/temperature-converter'
+     PATH = "/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:${env.PATH}"
+ }
     stages {
 
         stage('Checkout') {
