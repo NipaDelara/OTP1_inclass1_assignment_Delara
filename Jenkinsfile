@@ -16,13 +16,7 @@ pipeline {
 
         stage('Build and Test') {
             steps {
-                bat 'mvn clean test'
-            }
-        }
-
-        stage('Package') {
-            steps {
-                bat 'mvn package -DskipTests'
+                sh 'mvn clean verify'
             }
         }
 
@@ -41,7 +35,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t %DOCKER_IMAGE%:latest .'
+                sh 'docker build --platform linux/amd64 -t $DOCKER_IMAGE:latest .'
             }
         }
 
@@ -54,9 +48,9 @@ pipeline {
                         passwordVariable: 'DOCKER_PASSWORD'
                     )
                 ]) {
-                    bat '''
-                    @echo off
-                    echo %DOCKER_PASSWORD%| docker login -u %DOCKER_USER% --password-stdin
+                    sh '''
+                    echo "$DOCKER_PASSWORD" | docker login \
+                    -u "$DOCKER_USER" --password-stdin
                     '''
                 }
             }
@@ -64,7 +58,7 @@ pipeline {
 
         stage('Push Docker Image') {
             steps {
-                bat 'docker push %DOCKER_IMAGE%:latest'
+                sh 'docker push $DOCKER_IMAGE:latest'
             }
         }
     }
@@ -83,7 +77,7 @@ pipeline {
         }
 
         failure {
-            echo 'Pipeline failed. Check the Jenkins console output.'
+            echo 'Pipeline failed. Check Jenkins console output.'
         }
     }
 }

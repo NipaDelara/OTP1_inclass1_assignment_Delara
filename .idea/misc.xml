@@ -11,7 +11,7 @@
   <component name="PrintToLogpointModuleInspectionState">
     <option name="disabledModuleNames">
       <set>
-        <option value="OTP1_inclass1_assignment_Delara" />
+        <option value="TemperatureConverter" />
       </set>
     </option>
   </component>
