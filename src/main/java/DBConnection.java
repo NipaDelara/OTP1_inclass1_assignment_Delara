@@ -7,11 +7,12 @@ public class DBConnection {
 
     // Default = local Windows MariaDB
     // Docker can override these values with environment variables
-    private static final String URL = System.getenv().getOrDefault(
-            "DB_URL",
-            "jdbc:mariadb://localhost:3306/temperature_converter"
-    );
-
+    private static final String URL =
+            "jdbc:mariadb://" +
+                    (System.getenv("DB_HOST") != null
+                            ? System.getenv("DB_HOST")
+                            : "localhost") +
+                    ":3306/temperature_converter";
     private static final String USER = System.getenv().getOrDefault(
             "DB_USER",
             "root"

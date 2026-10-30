@@ -25,4 +25,4 @@ RUN mvn clean package -DskipTests
 ENV DISPLAY=host.docker.internal:0.0
 
 # Start JavaFX application
-CMD ["mvn", "exec:java", "-Dexec.mainClass=LocalizationConsole"]
+CMD ["mvn", "javafx:run"]
