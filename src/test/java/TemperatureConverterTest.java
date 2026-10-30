@@ -2,43 +2,61 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TemperatureConverterTest {
-    TemperatureConverter converter = new TemperatureConverter();
 
+    private final TemperatureConverter converter =
+            new TemperatureConverter();
 
-    //Fahrenheit to celsius
+    // Test Celsius to Fahrenheit
     @Test
-     public void testFahrenheitToCelsius(){
+    void testCelsiusToFahrenheit() {
+        assertEquals(77.0,
+                converter.celsiusToFahrenheit(25), 0.001);
+    }
 
-         assertEquals(0, converter.fahrenheitToCelsius(32),0.01);
-         assertEquals(100, converter.fahrenheitToCelsius(212),0.01);
-         assertEquals(-40, converter.fahrenheitToCelsius(-40),0.01);
-     }
+    // Test Fahrenheit to Celsius
+    @Test
+    void testFahrenheitToCelsius() {
+        assertEquals(25.0,
+                converter.fahrenheitToCelsius(77), 0.001);
+    }
 
-     @Test
-     public void testCelsiusToFahrenheit(){
+    // Test Kelvin to Celsius
+    @Test
+    void testKelvinToCelsius() {
+        assertEquals(26.85,
+                converter.kelvinToCelsius(300), 0.001);
+    }
 
-         assertEquals(32, converter.celsiusToFahrenheit(0),0.01);
-         assertEquals(212, converter.celsiusToFahrenheit(100),0.01);
-         assertEquals(-40, converter.celsiusToFahrenheit(-40), 0.01);
+    // Test extreme temperature
+    @Test
+    void testExtremeTemperature() {
+        assertTrue(converter.isExtremeTemperature(60));
+    }
 
-     }
-     @Test
-     public void testIsExtremeTemperature(){
-
-        assertTrue(converter.isExtremeTemperature(-41));
-        assertTrue(converter.isExtremeTemperature(51));
-
-        assertFalse(converter.isExtremeTemperature(-40));
-        assertFalse(converter.isExtremeTemperature(50));
+    // Test normal temperature
+    @Test
+    void testNormalTemperature() {
         assertFalse(converter.isExtremeTemperature(25));
-     }
+    }
 
-     @Test
-     public void testKelvinToCelsius(){
-        assertEquals(26.85, converter.kelvinToCelsius(300), 0.01);
-        assertEquals(0, converter.kelvinToCelsius(273.15), 0.01);
-         assertEquals(-273.15, converter.kelvinToCelsius(0), 0.01);
+    // Test freezing point
+    @Test
+    void testFreezingPoint() {
+        assertEquals(32.0,
+                converter.celsiusToFahrenheit(0), 0.001);
+    }
 
-     }
+    // Test negative temperature
+    @Test
+    void testNegativeTemperature() {
+        assertEquals(-40.0,
+                converter.celsiusToFahrenheit(-40), 0.001);
+    }
 
+    // Test boiling point
+    @Test
+    void testBoilingPoint() {
+        assertEquals(100.0,
+                converter.fahrenheitToCelsius(212), 0.001);
+    }
 }

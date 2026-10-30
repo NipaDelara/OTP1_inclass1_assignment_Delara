@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="TemperatureFXMLController"
+      alignment="CENTER"
+      spacing="12"
+      prefWidth="450"
+      prefHeight="650">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Application title -->
+    <Label fx:id="titleLabel"
+           text="Temperature Converter"
+           style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+    <!-- Language selection -->
+    <Label fx:id="languageLabel" text="Language:"/>
+    <ComboBox fx:id="languageBox"
+              prefWidth="220"
+              onAction="#changeLanguage"/>
+
+    <!-- Temperature input -->
+    <Label fx:id="temperatureLabel" text="Temperature:" />
+    <TextField fx:id="temperatureField"
+               promptText="Enter temperature"
+               prefWidth="250"/>
+
+    <!-- From unit -->
+    <Label fx:id="fromLabel" text="From:"/>
+    <ComboBox fx:id="fromUnitBox" prefWidth="220"/>
+
+    <!-- To unit -->
+    <Label fx:id="toLabel" text="To:"/>
+    <ComboBox fx:id="toUnitBox" prefWidth="220"/>
+
+    <!-- Convert button -->
+    <Button fx:id="convertButton"
+            text="Convert &amp; Save"
+            onAction="#convertTemperature"/>
+
+    <!-- Result -->
+    <Label fx:id="resultLabel"
+           text="Result:"
+           style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <!-- Conversion history -->
+    <Label fx:id="historyLabel"
+           text="Conversion History"
+           style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+    <TextArea fx:id="historyArea"
+              editable="false"
+              prefHeight="180"
+              prefWidth="380"/>
+
+</VBox>
