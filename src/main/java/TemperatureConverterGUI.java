@@ -18,6 +18,11 @@ public class TemperatureConverterGUI extends Application {
         // Create scene using FXML
         Scene scene = new Scene(loader.load());
 
+        // Use Japanese-compatible font
+        scene.getRoot().setStyle(
+                "-fx-font-family: 'Noto Sans CJK JP';"
+        );
+
         // Set application window title
         stage.setTitle("Temperature Converter");
 
