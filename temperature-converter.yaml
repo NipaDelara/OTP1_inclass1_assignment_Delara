@@ -1,0 +1,36 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: temperature-converter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: temperature-converter
+  template:
+    metadata:
+      labels:
+        app: temperature-converter
+    spec:
+      containers:
+        - name: temperature-converter
+          image: nipa93/temperature-converter:latest
+          imagePullPolicy: Never
+          env:
+            - name: DISPLAY
+              value: "host.docker.internal:0.0"
+            - name: DB_HOST
+              value: "host.docker.internal"
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: temperature-db
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: temperature-db
+                  key: password
+            - name: JAVA_TOOL_OPTIONS
+              value: "-Dprism.order=sw"
