@@ -5,28 +5,29 @@ import java.sql.Statement;
 
 public class DBConnection {
 
-    // Default = local Windows MariaDB
-    // Docker can override these values with environment variables
+    // Database host: localhost for Mac, configurable for Docker
+    private static final String HOST =
+            System.getenv().getOrDefault("DB_HOST", "localhost");
+
+
     private static final String URL =
             "jdbc:mariadb://" +
-                    (System.getenv("DB_HOST") != null
-                            ? System.getenv("DB_HOST")
-                            : "localhost") +
-                    ":3306/temperature_converter";
-    private static final String USER = System.getenv().getOrDefault(
-            "DB_USER",
-            "root"
-    );
+                    System.getenv().getOrDefault("DB_HOST", "127.0.0.1")
+                    + ":3306/temperature_converter";
 
-    private static final String PASSWORD = System.getenv().getOrDefault(
-            "DB_PASSWORD",
-            "12345"
-    );
+    private static final String USER =
+            System.getenv().getOrDefault("DB_USER", "root");
 
+    private static final String PASSWORD =
+            System.getenv().getOrDefault("DB_PASSWORD", "");
+
+
+    // Connect to MariaDB
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
+    // Create database tables
     public static void initializeDatabase() {
 
         String createTemperatureUnitTable = """

@@ -12,6 +12,8 @@ RUN apt-get update && apt-get install -y \
     libxtst6 \
     libgl1 \
     libasound2 \
+    fonts-noto-cjk \
+    fonts-noto-core \
     && rm -rf /var/lib/apt/lists/*
 
 COPY pom.xml .
