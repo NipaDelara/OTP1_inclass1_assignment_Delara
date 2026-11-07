@@ -1,0 +1,1262 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 723B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/maven:3.9.6-eclipse-temurin-21
+#2 DONE 0.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM docker.io/library/maven:3.9.6-eclipse-temurin-21@sha256:8d63d4c1902cb12d9e79a70671b18ebe26358cb592561af33ca1808f00d935cb
+#4 resolve docker.io/library/maven:3.9.6-eclipse-temurin-21@sha256:8d63d4c1902cb12d9e79a70671b18ebe26358cb592561af33ca1808f00d935cb 0.0s done
+#4 DONE 0.0s
+
+#5 [2/6] WORKDIR /app
+#5 CACHED
+
+#6 [internal] load build context
+#6 transferring context: 5.47kB done
+#6 DONE 0.0s
+
+#7 [3/6] RUN apt-get update && apt-get install -y     libgtk-3-0     libx11-6     libxext6     libxi6     libxrender1     libxtst6     libgl1     libasound2     fonts-noto-cjk     fonts-noto-core     fontconfig     xvfb     x11vnc     x11-utils     xauth     && fc-cache -f     && rm -rf /var/lib/apt/lists/*
+#7 0.453 Get:1 http://ports.ubuntu.com/ubuntu-ports jammy InRelease [270 kB]
+#7 0.586 Get:2 http://ports.ubuntu.com/ubuntu-ports jammy-updates InRelease [128 kB]
+#7 0.623 Get:3 http://ports.ubuntu.com/ubuntu-ports jammy-backports InRelease [127 kB]
+#7 0.667 Get:4 http://ports.ubuntu.com/ubuntu-ports jammy-security InRelease [129 kB]
+#7 0.720 Get:5 http://ports.ubuntu.com/ubuntu-ports jammy/universe arm64 Packages [17.2 MB]
+#7 2.983 Get:6 http://ports.ubuntu.com/ubuntu-ports jammy/multiverse arm64 Packages [224 kB]
+#7 3.002 Get:7 http://ports.ubuntu.com/ubuntu-ports jammy/restricted arm64 Packages [24.2 kB]
+#7 3.004 Get:8 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 Packages [1,758 kB]
+#7 3.279 Get:9 http://ports.ubuntu.com/ubuntu-ports jammy-updates/restricted arm64 Packages [8,464 kB]
+#7 4.418 Get:10 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 Packages [4,628 kB]
+#7 5.026 Get:11 http://ports.ubuntu.com/ubuntu-ports jammy-updates/universe arm64 Packages [1,722 kB]
+#7 5.234 Get:12 http://ports.ubuntu.com/ubuntu-ports jammy-updates/multiverse arm64 Packages [81.6 kB]
+#7 5.241 Get:13 http://ports.ubuntu.com/ubuntu-ports jammy-backports/main arm64 Packages [82.5 kB]
+#7 5.252 Get:14 http://ports.ubuntu.com/ubuntu-ports jammy-backports/universe arm64 Packages [33.7 kB]
+#7 5.254 Get:15 http://ports.ubuntu.com/ubuntu-ports jammy-security/multiverse arm64 Packages [75.6 kB]
+#7 5.264 Get:16 http://ports.ubuntu.com/ubuntu-ports jammy-security/restricted arm64 Packages [8,106 kB]
+#7 7.982 Get:17 http://ports.ubuntu.com/ubuntu-ports jammy-security/universe arm64 Packages [1,426 kB]
+#7 8.598 Get:18 http://ports.ubuntu.com/ubuntu-ports jammy-security/main arm64 Packages [4,291 kB]
+#7 10.31 Fetched 48.8 MB in 10s (4,894 kB/s)
+#7 10.31 Reading package lists...
+#7 11.76 Reading package lists...
+#7 13.06 Building dependency tree...
+#7 13.33 Reading state information...
+#7 13.63 fontconfig is already the newest version (2.13.1-4.2ubuntu5).
+#7 13.63 The following additional packages will be installed:
+#7 13.63   adwaita-icon-theme alsa-topology-conf alsa-ucm-conf at-spi2-core dbus
+#7 13.63   dbus-user-session dconf-gsettings-backend dconf-service dmsetup
+#7 13.63   gir1.2-glib-2.0 gsettings-desktop-schemas gtk-update-icon-cache
+#7 13.63   hicolor-icon-theme humanity-icon-theme libapparmor1 libargon2-1
+#7 13.63   libasound2-data libatk-bridge2.0-0 libatk1.0-0 libatk1.0-data libatspi2.0-0
+#7 13.63   libavahi-client3 libavahi-common-data libavahi-common3 libbsd0
+#7 13.63   libcairo-gobject2 libcairo2 libcolord2 libcryptsetup12 libcups2 libdatrie1
+#7 13.63   libdbus-1-3 libdconf1 libdeflate0 libdevmapper1.02.1 libdrm-amdgpu1
+#7 13.63   libdrm-common libdrm-nouveau2 libdrm-radeon1 libdrm2 libedit2 libelf1
+#7 13.63   libepoxy0 libfontenc1 libfribidi0 libgdk-pixbuf-2.0-0 libgdk-pixbuf2.0-bin
+#7 13.63   libgdk-pixbuf2.0-common libgirepository-1.0-1 libgl1-amber-dri
+#7 13.63   libgl1-mesa-dri libglapi-mesa libglib2.0-0 libglib2.0-data libglvnd0
+#7 13.63   libglx-mesa0 libglx0 libgraphite2-3 libgtk-3-bin libgtk-3-common
+#7 13.63   libharfbuzz0b libice6 libicu70 libip4tc2 libjbig0 libjpeg-turbo8 libjpeg8
+#7 13.63   libjson-c5 libkmod2 liblcms2-2 libllvm15 liblzo2-2 libmd0 libmpdec3
+#7 13.63   libnss-systemd libpam-systemd libpango-1.0-0 libpangocairo-1.0-0
+#7 13.63   libpangoft2-1.0-0 libpixman-1-0 libpython3-stdlib libpython3.10-minimal
+#7 13.63   libpython3.10-stdlib libreadline8 librsvg2-2 librsvg2-common
+#7 13.63   libsensors-config libsensors5 libsm6 libsqlite3-0 libsystemd0 libtcl8.6
+#7 13.63   libthai-data libthai0 libtiff5 libtk8.6 libunwind8 libutempter0
+#7 13.63   libvncclient1 libvncserver1 libwayland-client0 libwayland-cursor0
+#7 13.63   libwayland-egl1 libwebp7 libx11-data libx11-xcb1 libxau6 libxaw7
+#7 13.63   libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0 libxcb-randr0
+#7 13.63   libxcb-render0 libxcb-shape0 libxcb-shm0 libxcb-sync1 libxcb-xfixes0 libxcb1
+#7 13.63   libxcomposite1 libxcursor1 libxdamage1 libxdmcp6 libxfixes3 libxfont2
+#7 13.63   libxft2 libxinerama1 libxkbcommon0 libxkbfile1 libxml2 libxmu6 libxmuu1
+#7 13.63   libxpm4 libxrandr2 libxshmfence1 libxss1 libxt6 libxv1 libxxf86dga1
+#7 13.63   libxxf86vm1 media-types networkd-dispatcher python3 python3-dbus python3-gi
+#7 13.63   python3-minimal python3.10 python3.10-minimal readline-common
+#7 13.63   session-migration shared-mime-info systemd systemd-sysv systemd-timesyncd
+#7 13.63   tcl tcl8.6 tk tk8.6 ubuntu-mono x11-common x11-xkb-utils xbitmaps
+#7 13.63   xdg-user-dirs xfonts-base xfonts-encodings xfonts-utils xkb-data
+#7 13.63   xserver-common xterm
+#7 13.63 Suggested packages:
+#7 13.63   fonts-noto-cjk-extra libasound2-plugins alsa-utils colord cups-common gvfs
+#7 13.63   liblcms2-utils librsvg2-bin lm-sensors iw | wireless-tools python3-doc
+#7 13.63   python3-tk python3-venv python-dbus-doc python3.10-venv python3.10-doc
+#7 13.63   binfmt-support readline-doc systemd-container libfido2-1
+#7 13.63   libtss2-esys-3.0.2-0 libtss2-mu0 libtss2-rc0 policykit-1 tcl-tclreadline
+#7 13.63   mesa-utils xfonts-cyrillic
+#7 13.96 The following NEW packages will be installed:
+#7 13.96   adwaita-icon-theme alsa-topology-conf alsa-ucm-conf at-spi2-core dbus
+#7 13.96   dbus-user-session dconf-gsettings-backend dconf-service dmsetup
+#7 13.96   fonts-noto-cjk fonts-noto-core gir1.2-glib-2.0 gsettings-desktop-schemas
+#7 13.96   gtk-update-icon-cache hicolor-icon-theme humanity-icon-theme libapparmor1
+#7 13.96   libargon2-1 libasound2 libasound2-data libatk-bridge2.0-0 libatk1.0-0
+#7 13.96   libatk1.0-data libatspi2.0-0 libavahi-client3 libavahi-common-data
+#7 13.96   libavahi-common3 libbsd0 libcairo-gobject2 libcairo2 libcolord2
+#7 13.96   libcryptsetup12 libcups2 libdatrie1 libdbus-1-3 libdconf1 libdeflate0
+#7 13.96   libdevmapper1.02.1 libdrm-amdgpu1 libdrm-common libdrm-nouveau2
+#7 13.96   libdrm-radeon1 libdrm2 libedit2 libelf1 libepoxy0 libfontenc1 libfribidi0
+#7 13.96   libgdk-pixbuf-2.0-0 libgdk-pixbuf2.0-bin libgdk-pixbuf2.0-common
+#7 13.96   libgirepository-1.0-1 libgl1 libgl1-amber-dri libgl1-mesa-dri libglapi-mesa
+#7 13.96   libglib2.0-0 libglib2.0-data libglvnd0 libglx-mesa0 libglx0 libgraphite2-3
+#7 13.96   libgtk-3-0 libgtk-3-bin libgtk-3-common libharfbuzz0b libice6 libicu70
+#7 13.96   libip4tc2 libjbig0 libjpeg-turbo8 libjpeg8 libjson-c5 libkmod2 liblcms2-2
+#7 13.96   libllvm15 liblzo2-2 libmd0 libmpdec3 libnss-systemd libpam-systemd
+#7 13.96   libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libpixman-1-0
+#7 13.96   libpython3-stdlib libpython3.10-minimal libpython3.10-stdlib libreadline8
+#7 13.96   librsvg2-2 librsvg2-common libsensors-config libsensors5 libsm6 libsqlite3-0
+#7 13.96   libtcl8.6 libthai-data libthai0 libtiff5 libtk8.6 libunwind8 libutempter0
+#7 13.96   libvncclient1 libvncserver1 libwayland-client0 libwayland-cursor0
+#7 13.96   libwayland-egl1 libwebp7 libx11-6 libx11-data libx11-xcb1 libxau6 libxaw7
+#7 13.96   libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0 libxcb-randr0
+#7 13.96   libxcb-render0 libxcb-shape0 libxcb-shm0 libxcb-sync1 libxcb-xfixes0 libxcb1
+#7 13.96   libxcomposite1 libxcursor1 libxdamage1 libxdmcp6 libxext6 libxfixes3
+#7 13.96   libxfont2 libxft2 libxi6 libxinerama1 libxkbcommon0 libxkbfile1 libxml2
+#7 13.96   libxmu6 libxmuu1 libxpm4 libxrandr2 libxrender1 libxshmfence1 libxss1 libxt6
+#7 13.96   libxtst6 libxv1 libxxf86dga1 libxxf86vm1 media-types networkd-dispatcher
+#7 13.96   python3 python3-dbus python3-gi python3-minimal python3.10
+#7 13.96   python3.10-minimal readline-common session-migration shared-mime-info
+#7 13.96   systemd systemd-sysv systemd-timesyncd tcl tcl8.6 tk tk8.6 ubuntu-mono
+#7 13.96   x11-common x11-utils x11-xkb-utils x11vnc xauth xbitmaps xdg-user-dirs
+#7 13.96   xfonts-base xfonts-encodings xfonts-utils xkb-data xserver-common xterm xvfb
+#7 13.96 The following packages will be upgraded:
+#7 13.97   libsystemd0
+#7 14.06 1 upgraded, 182 newly installed, 0 to remove and 83 not upgraded.
+#7 14.06 Need to get 164 MB of archives.
+#7 14.06 After this operation, 481 MB of additional disk space will be used.
+#7 14.06 Get:1 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libsystemd0 arm64 249.11-0ubuntu3.23 [312 kB]
+#7 14.20 Get:2 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libpython3.10-minimal arm64 3.10.12-1~22.04.18 [814 kB]
+#7 14.31 Get:3 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 python3.10-minimal arm64 3.10.12-1~22.04.18 [2,245 kB]
+#7 14.62 Get:4 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 python3-minimal arm64 3.10.6-1~22.04.1 [24.3 kB]
+#7 14.62 Get:5 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 media-types all 7.0.0 [25.5 kB]
+#7 14.62 Get:6 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libmpdec3 arm64 2.5.1-2build2 [89.0 kB]
+#7 14.64 Get:7 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 readline-common all 8.1.2-1 [53.5 kB]
+#7 14.66 Get:8 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libreadline8 arm64 8.1.2-1 [153 kB]
+#7 14.67 Get:9 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libsqlite3-0 arm64 3.37.2-2ubuntu0.8 [636 kB]
+#7 15.00 Get:10 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libpython3.10-stdlib arm64 3.10.12-1~22.04.18 [1,848 kB]
+#7 15.68 Get:11 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 python3.10 arm64 3.10.12-1~22.04.18 [508 kB]
+#7 15.96 Get:12 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libpython3-stdlib arm64 3.10.6-1~22.04.1 [6,812 B]
+#7 15.96 Get:13 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 python3 arm64 3.10.6-1~22.04.1 [22.8 kB]
+#7 15.99 Get:14 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libapparmor1 arm64 3.0.4-2ubuntu2.5 [39.5 kB]
+#7 16.01 Get:15 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libargon2-1 arm64 0~20171227-0.3 [18.6 kB]
+#7 16.01 Get:16 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libdevmapper1.02.1 arm64 2:1.02.175-2.1ubuntu5 [129 kB]
+#7 16.06 Get:17 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libjson-c5 arm64 0.15-3~ubuntu1.22.04.2 [32.7 kB]
+#7 16.11 Get:18 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libcryptsetup12 arm64 2:2.4.3-1ubuntu1.3 [208 kB]
+#7 16.18 Get:19 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libip4tc2 arm64 1.8.7-1ubuntu5.2 [19.9 kB]
+#7 16.19 Get:20 http://ports.ubuntu.com/ubuntu-ports jammy-security/main arm64 libkmod2 arm64 29-1ubuntu1.1 [46.5 kB]
+#7 16.22 Get:21 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 systemd arm64 249.11-0ubuntu3.23 [4,418 kB]
+#7 17.94 Get:22 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 systemd-sysv arm64 249.11-0ubuntu3.23 [10.5 kB]
+#7 17.94 Get:23 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libdbus-1-3 arm64 1.12.20-2ubuntu4.1 [187 kB]
+#7 18.00 Get:24 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 dbus arm64 1.12.20-2ubuntu4.1 [154 kB]
+#7 18.04 Get:25 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 dmsetup arm64 2:1.02.175-2.1ubuntu5 [75.8 kB]
+#7 18.08 Get:26 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libglib2.0-0 arm64 2.72.4-0ubuntu2.11 [1,436 kB]
+#7 18.64 Get:27 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libgirepository-1.0-1 arm64 1.72.0-1 [53.5 kB]
+#7 18.66 Get:28 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 gir1.2-glib-2.0 arm64 1.72.0-1 [165 kB]
+#7 18.71 Get:29 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libmd0 arm64 1.0.4-1build1 [23.8 kB]
+#7 18.71 Get:30 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libbsd0 arm64 0.11.5-1 [43.7 kB]
+#7 18.72 Get:31 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libelf1 arm64 0.186-1ubuntu0.1 [50.8 kB]
+#7 18.73 Get:32 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libfribidi0 arm64 1.0.8-2ubuntu3.1 [26.4 kB]
+#7 18.74 Get:33 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libglib2.0-data all 2.72.4-0ubuntu2.11 [5,602 B]
+#7 18.74 Get:34 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libicu70 arm64 70.1-2 [10.5 MB]
+#7 21.50 Get:35 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libnss-systemd arm64 249.11-0ubuntu3.23 [133 kB]
+#7 21.52 Get:36 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libpam-systemd arm64 249.11-0ubuntu3.23 [205 kB]
+#7 21.54 Get:37 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libxml2 arm64 2.9.13+dfsg-1ubuntu0.14 [728 kB]
+#7 21.65 Get:38 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 python3-dbus arm64 1.2.18-3build1 [98.5 kB]
+#7 21.66 Get:39 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 python3-gi arm64 3.42.1-0ubuntu1 [228 kB]
+#7 21.70 Get:40 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 networkd-dispatcher all 2.1-2ubuntu0.22.04.2 [15.8 kB]
+#7 21.70 Get:41 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 shared-mime-info arm64 2.1-2 [453 kB]
+#7 21.75 Get:42 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 systemd-timesyncd arm64 249.11-0ubuntu3.23 [30.0 kB]
+#7 21.75 Get:43 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 xdg-user-dirs arm64 0.17-2ubuntu4 [53.5 kB]
+#7 21.76 Get:44 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 xkb-data all 2.33-1 [394 kB]
+#7 21.81 Get:45 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libdrm-common all 2.4.113-2~ubuntu0.22.04.1 [5,450 B]
+#7 21.81 Get:46 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libdrm2 arm64 2.4.113-2~ubuntu0.22.04.1 [39.1 kB]
+#7 21.82 Get:47 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libedit2 arm64 3.1-20210910-1build1 [96.0 kB]
+#7 21.83 Get:48 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxau6 arm64 1:1.0.9-1build5 [7,624 B]
+#7 21.83 Get:49 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxdmcp6 arm64 1:1.1.3-0ubuntu5 [10.8 kB]
+#7 21.83 Get:50 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxcb1 arm64 1.14-3ubuntu3 [49.0 kB]
+#7 21.84 Get:51 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libx11-data all 2:1.7.5-1ubuntu0.4 [120 kB]
+#7 21.85 Get:52 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libx11-6 arm64 2:1.7.5-1ubuntu0.4 [666 kB]
+#7 21.96 Get:53 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxext6 arm64 2:1.3.4-1build1 [31.1 kB]
+#7 21.96 Get:54 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxmuu1 arm64 2:1.1.3-3 [10.4 kB]
+#7 21.97 Get:55 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 xauth arm64 1:1.1-1build2 [26.8 kB]
+#7 21.97 Get:56 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 hicolor-icon-theme all 0.17-2 [9,976 B]
+#7 21.98 Get:57 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libgdk-pixbuf2.0-common all 2.42.8+dfsg-1ubuntu0.5 [5,560 B]
+#7 21.98 Get:58 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libjpeg-turbo8 arm64 2.1.2-0ubuntu1 [129 kB]
+#7 22.01 Get:59 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libjpeg8 arm64 8c-2ubuntu10 [2,264 B]
+#7 22.01 Get:60 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libdeflate0 arm64 1.10-2 [69.1 kB]
+#7 22.03 Get:61 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libjbig0 arm64 2.1-3.1ubuntu0.22.04.1 [29.1 kB]
+#7 22.03 Get:62 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libwebp7 arm64 1.2.2-2ubuntu0.22.04.2 [193 kB]
+#7 22.05 Get:63 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libtiff5 arm64 4.3.0-6ubuntu0.13 [181 kB]
+#7 22.07 Get:64 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libgdk-pixbuf-2.0-0 arm64 2.42.8+dfsg-1ubuntu0.5 [143 kB]
+#7 22.09 Get:65 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 gtk-update-icon-cache arm64 3.24.33-1ubuntu2.2 [31.1 kB]
+#7 22.09 Get:66 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 humanity-icon-theme all 0.6.16 [1,282 kB]
+#7 22.24 Get:67 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 ubuntu-mono all 20.10-0ubuntu2 [153 kB]
+#7 22.26 Get:68 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 adwaita-icon-theme all 41.0-1ubuntu1 [3,444 kB]
+#7 22.76 Get:69 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 alsa-topology-conf all 1.2.5.1-2 [15.5 kB]
+#7 22.76 Get:70 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libasound2-data all 1.2.6.1-1ubuntu1.2 [19.3 kB]
+#7 22.77 Get:71 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libasound2 arm64 1.2.6.1-1ubuntu1.2 [380 kB]
+#7 22.83 Get:72 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 alsa-ucm-conf all 1.2.6.3-1ubuntu1.12 [43.5 kB]
+#7 22.85 Get:73 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxi6 arm64 2:1.8-1build1 [31.6 kB]
+#7 22.85 Get:74 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libatspi2.0-0 arm64 2.44.0-3 [78.8 kB]
+#7 22.86 Get:75 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 x11-common all 1:7.7+23ubuntu2 [23.4 kB]
+#7 22.87 Get:76 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libxtst6 arm64 2:1.2.3-1ubuntu0.22.04.1 [13.5 kB]
+#7 22.87 Get:77 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 dbus-user-session arm64 1.12.20-2ubuntu4.1 [9,442 B]
+#7 22.87 Get:78 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libdconf1 arm64 0.40.0-3ubuntu0.1 [40.2 kB]
+#7 22.87 Get:79 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 dconf-service arm64 0.40.0-3ubuntu0.1 [27.0 kB]
+#7 22.87 Get:80 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 dconf-gsettings-backend arm64 0.40.0-3ubuntu0.1 [22.2 kB]
+#7 22.87 Get:81 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 session-migration arm64 0.3.6 [9,512 B]
+#7 22.88 Get:82 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 gsettings-desktop-schemas all 42.0-1ubuntu1 [31.1 kB]
+#7 22.88 Get:83 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 at-spi2-core arm64 2.44.0-3 [53.1 kB]
+#7 22.89 Get:84 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 fonts-noto-cjk all 1:20220127+repack1-1 [61.2 MB]
+#7 43.97 Get:85 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 fonts-noto-core all 20201225-1build1 [12.2 MB]
+#7 45.64 Get:86 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libatk1.0-data all 2.36.0-3build1 [2,824 B]
+#7 45.64 Get:87 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libatk1.0-0 arm64 2.36.0-3build1 [51.0 kB]
+#7 45.65 Get:88 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libatk-bridge2.0-0 arm64 2.38.0-3 [65.7 kB]
+#7 45.65 Get:89 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libavahi-common-data arm64 0.8-5ubuntu5.5 [24.0 kB]
+#7 45.66 Get:90 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libavahi-common3 arm64 0.8-5ubuntu5.5 [23.4 kB]
+#7 45.66 Get:91 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libavahi-client3 arm64 0.8-5ubuntu5.5 [27.4 kB]
+#7 45.66 Get:92 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libpixman-1-0 arm64 0.40.0-1ubuntu0.22.04.1 [160 kB]
+#7 45.69 Get:93 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxcb-render0 arm64 1.14-3ubuntu3 [16.2 kB]
+#7 45.69 Get:94 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxcb-shm0 arm64 1.14-3ubuntu3 [5,848 B]
+#7 45.69 Get:95 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxrender1 arm64 1:0.9.10-1build4 [18.8 kB]
+#7 45.69 Get:96 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libcairo2 arm64 1.16.0-5ubuntu2.1 [613 kB]
+#7 45.76 Get:97 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libcairo-gobject2 arm64 1.16.0-5ubuntu2.1 [19.4 kB]
+#7 45.77 Get:98 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 liblcms2-2 arm64 2.12~rc1-2ubuntu0.1 [158 kB]
+#7 45.80 Get:99 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libcolord2 arm64 1.4.6-1 [152 kB]
+#7 45.82 Get:100 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libcups2 arm64 2.4.1op1-1ubuntu4.21 [265 kB]
+#7 45.86 Get:101 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libdatrie1 arm64 0.2.13-2 [19.8 kB]
+#7 45.91 Get:102 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libdrm-amdgpu1 arm64 2.4.113-2~ubuntu0.22.04.1 [19.8 kB]
+#7 45.96 Get:103 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libdrm-nouveau2 arm64 2.4.113-2~ubuntu0.22.04.1 [17.5 kB]
+#7 45.97 Get:104 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libdrm-radeon1 arm64 2.4.113-2~ubuntu0.22.04.1 [21.2 kB]
+#7 45.98 Get:105 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libepoxy0 arm64 1.5.10-1 [247 kB]
+#7 46.09 Get:106 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libfontenc1 arm64 1:1.1.4-1build3 [14.1 kB]
+#7 46.09 Get:107 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libgdk-pixbuf2.0-bin arm64 2.42.8+dfsg-1ubuntu0.5 [14.1 kB]
+#7 46.11 Get:108 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libglapi-mesa arm64 23.2.1-1ubuntu3.1~22.04.4 [50.7 kB]
+#7 46.12 Get:109 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libgl1-amber-dri arm64 21.3.9-0ubuntu1~22.04.2 [1,848 kB]
+#7 46.85 Get:110 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libllvm15 arm64 1:15.0.7-0ubuntu0.22.04.3 [24.2 MB]
+#7 54.51 Get:111 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libsensors-config all 1:3.6.0-7ubuntu1 [5,274 B]
+#7 54.51 Get:112 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libsensors5 arm64 1:3.6.0-7ubuntu1 [26.1 kB]
+#7 54.51 Get:113 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxcb-dri3-0 arm64 1.14-3ubuntu3 [6,922 B]
+#7 54.51 Get:114 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libgl1-mesa-dri arm64 23.2.1-1ubuntu3.1~22.04.4 [8,099 kB]
+#7 57.23 Get:115 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libx11-xcb1 arm64 2:1.7.5-1ubuntu0.4 [7,814 B]
+#7 57.23 Get:116 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxcb-dri2-0 arm64 1.14-3ubuntu3 [7,242 B]
+#7 57.23 Get:117 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxcb-glx0 arm64 1.14-3ubuntu3 [26.1 kB]
+#7 57.24 Get:118 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxcb-present0 arm64 1.14-3ubuntu3 [5,724 B]
+#7 57.24 Get:119 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxcb-randr0 arm64 1.14-3ubuntu3 [18.4 kB]
+#7 57.25 Get:120 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxcb-sync1 arm64 1.14-3ubuntu3 [9,312 B]
+#7 57.25 Get:121 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxcb-xfixes0 arm64 1.14-3ubuntu3 [10.0 kB]
+#7 57.25 Get:122 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxfixes3 arm64 1:6.0.0-1 [11.4 kB]
+#7 57.25 Get:123 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxshmfence1 arm64 1.3-1build4 [5,444 B]
+#7 57.25 Get:124 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxxf86vm1 arm64 1:1.1.4-1build3 [10.3 kB]
+#7 57.26 Get:125 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libglx-mesa0 arm64 23.2.1-1ubuntu3.1~22.04.4 [166 kB]
+#7 57.29 Get:126 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libgraphite2-3 arm64 1.3.14-1ubuntu0.1 [69.2 kB]
+#7 57.30 Get:127 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libharfbuzz0b arm64 2.7.4-1ubuntu3.2 [353 kB]
+#7 57.37 Get:128 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libthai-data all 0.1.29-1build1 [162 kB]
+#7 57.40 Get:129 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libthai0 arm64 0.1.29-1build1 [18.4 kB]
+#7 57.40 Get:130 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libpango-1.0-0 arm64 1.50.6+ds-2ubuntu1 [225 kB]
+#7 57.44 Get:131 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libpangoft2-1.0-0 arm64 1.50.6+ds-2ubuntu1 [52.0 kB]
+#7 57.46 Get:132 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libpangocairo-1.0-0 arm64 1.50.6+ds-2ubuntu1 [37.8 kB]
+#7 57.46 Get:133 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libwayland-client0 arm64 1.20.0-1ubuntu0.1 [25.4 kB]
+#7 57.47 Get:134 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libwayland-cursor0 arm64 1.20.0-1ubuntu0.1 [10.5 kB]
+#7 57.47 Get:135 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libwayland-egl1 arm64 1.20.0-1ubuntu0.1 [5,516 B]
+#7 57.47 Get:136 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxcomposite1 arm64 1:0.4.5-1build2 [7,080 B]
+#7 57.47 Get:137 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxcursor1 arm64 1:1.2.0-2build4 [20.9 kB]
+#7 57.47 Get:138 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxdamage1 arm64 1:1.1.5-2build2 [6,950 B]
+#7 57.47 Get:139 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxinerama1 arm64 2:1.1.4-3 [7,056 B]
+#7 57.48 Get:140 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxkbcommon0 arm64 1.4.0-1 [122 kB]
+#7 57.50 Get:141 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxrandr2 arm64 2:1.5.2-1build1 [19.6 kB]
+#7 57.50 Get:142 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libgtk-3-common all 3.24.33-1ubuntu2.2 [239 kB]
+#7 57.53 Get:143 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libgtk-3-0 arm64 3.24.33-1ubuntu2.2 [2,990 kB]
+#7 57.97 Get:144 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libgtk-3-bin arm64 3.24.33-1ubuntu2.2 [69.1 kB]
+#7 57.99 Get:145 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libice6 arm64 2:1.0.10-1build2 [41.7 kB]
+#7 57.99 Get:146 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 liblzo2-2 arm64 2.10-2build3 [51.4 kB]
+#7 58.00 Get:147 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 librsvg2-2 arm64 2.52.5+dfsg-3ubuntu0.2 [2,765 kB]
+#7 58.55 Get:148 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 librsvg2-common arm64 2.52.5+dfsg-3ubuntu0.2 [17.5 kB]
+#7 58.55 Get:149 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libsm6 arm64 2:1.2.3-1build2 [16.1 kB]
+#7 58.55 Get:150 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libtcl8.6 arm64 8.6.12+dfsg-1build1 [987 kB]
+#7 58.90 Get:151 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxft2 arm64 2.3.4-1 [40.9 kB]
+#7 58.90 Get:152 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxss1 arm64 1:1.2.3-1build2 [8,252 B]
+#7 58.91 Get:153 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libtk8.6 arm64 8.6.12-1build1 [777 kB]
+#7 59.13 Get:154 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libunwind8 arm64 1.3.2-2build2.1 [53.4 kB]
+#7 59.17 Get:155 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libutempter0 arm64 1.2.1-2build2 [8,774 B]
+#7 59.17 Get:156 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libvncclient1 arm64 0.9.13+dfsg-3ubuntu0.2 [69.6 kB]
+#7 59.20 Get:157 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libvncserver1 arm64 0.9.13+dfsg-3ubuntu0.2 [129 kB]
+#7 59.24 Get:158 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxt6 arm64 1:1.2.1-1 [171 kB]
+#7 59.31 Get:159 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxmu6 arm64 2:1.1.3-3 [48.9 kB]
+#7 59.33 Get:160 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libxpm4 arm64 1:3.5.12-1ubuntu0.22.04.4 [35.2 kB]
+#7 59.34 Get:161 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxaw7 arm64 2:1.0.14-1 [184 kB]
+#7 59.41 Get:162 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxcb-shape0 arm64 1.14-3ubuntu3 [6,092 B]
+#7 59.42 Get:163 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libxfont2 arm64 1:2.0.5-1ubuntu0.2 [90.9 kB]
+#7 59.43 Get:164 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxkbfile1 arm64 1:1.1.0-1build3 [71.2 kB]
+#7 59.45 Get:165 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxv1 arm64 2:1.0.11-1build2 [11.0 kB]
+#7 59.45 Get:166 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libxxf86dga1 arm64 2:1.1.5-0ubuntu3 [12.2 kB]
+#7 59.45 Get:167 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 tcl8.6 arm64 8.6.12+dfsg-1build1 [15.0 kB]
+#7 59.45 Get:168 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 tcl arm64 8.6.11+1build2 [4,678 B]
+#7 59.45 Get:169 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 tk8.6 arm64 8.6.12-1build1 [12.7 kB]
+#7 59.46 Get:170 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 tk arm64 8.6.11+1build2 [3,058 B]
+#7 59.46 Get:171 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libglvnd0 arm64 1.4.0-1 [61.0 kB]
+#7 59.48 Get:172 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libglx0 arm64 1.4.0-1 [37.1 kB]
+#7 59.49 Get:173 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 libgl1 arm64 1.4.0-1 [114 kB]
+#7 59.51 Get:174 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 x11-utils arm64 7.7+5build2 [205 kB]
+#7 59.54 Get:175 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 x11-xkb-utils arm64 7.7+5build4 [168 kB]
+#7 59.57 Get:176 http://ports.ubuntu.com/ubuntu-ports jammy/universe arm64 x11vnc arm64 0.9.16-8 [1,011 kB]
+#7 59.86 Get:177 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 xbitmaps all 1.1.1-2.1ubuntu1 [23.4 kB]
+#7 59.86 Get:178 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 xfonts-encodings all 1:1.0.5-0ubuntu2 [578 kB]
+#7 59.94 Get:179 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 xfonts-utils arm64 1:7.7+6build2 [93.6 kB]
+#7 59.96 Get:180 http://ports.ubuntu.com/ubuntu-ports jammy/main arm64 xfonts-base all 1:1.0.5 [5,896 kB]
+#7 60.75 Get:181 http://ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 xserver-common all 2:21.1.4-2ubuntu1.7~22.04.16 [29.5 kB]
+#7 60.75 Get:182 http://ports.ubuntu.com/ubuntu-ports jammy/universe arm64 xterm arm64 372-1ubuntu1 [858 kB]
+#7 60.91 Get:183 http://ports.ubuntu.com/ubuntu-ports jammy-updates/universe arm64 xvfb arm64 2:21.1.4-2ubuntu1.7~22.04.16 [858 kB]
+#7 61.32 debconf: delaying package configuration, since apt-utils is not installed
+#7 61.35 Fetched 164 MB in 47s (3,489 kB/s)
+#7 61.37 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 11053 files and directories currently installed.)
+#7 61.39 Preparing to unpack .../libsystemd0_249.11-0ubuntu3.23_arm64.deb ...
+#7 61.40 Unpacking libsystemd0:arm64 (249.11-0ubuntu3.23) over (249.11-0ubuntu3.12) ...
+#7 61.43 Setting up libsystemd0:arm64 (249.11-0ubuntu3.23) ...
+#7 61.45 Selecting previously unselected package libpython3.10-minimal:arm64.
+#7 61.45 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 11053 files and directories currently installed.)
+#7 61.46 Preparing to unpack .../libpython3.10-minimal_3.10.12-1~22.04.18_arm64.deb ...
+#7 61.46 Unpacking libpython3.10-minimal:arm64 (3.10.12-1~22.04.18) ...
+#7 61.56 Selecting previously unselected package python3.10-minimal.
+#7 61.56 Preparing to unpack .../python3.10-minimal_3.10.12-1~22.04.18_arm64.deb ...
+#7 61.56 Unpacking python3.10-minimal (3.10.12-1~22.04.18) ...
+#7 61.63 Setting up libpython3.10-minimal:arm64 (3.10.12-1~22.04.18) ...
+#7 61.64 Setting up python3.10-minimal (3.10.12-1~22.04.18) ...
+#7 62.25 Selecting previously unselected package python3-minimal.
+#7 62.25 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 11349 files and directories currently installed.)
+#7 62.26 Preparing to unpack .../0-python3-minimal_3.10.6-1~22.04.1_arm64.deb ...
+#7 62.26 Unpacking python3-minimal (3.10.6-1~22.04.1) ...
+#7 62.28 Selecting previously unselected package media-types.
+#7 62.28 Preparing to unpack .../1-media-types_7.0.0_all.deb ...
+#7 62.28 Unpacking media-types (7.0.0) ...
+#7 62.30 Selecting previously unselected package libmpdec3:arm64.
+#7 62.30 Preparing to unpack .../2-libmpdec3_2.5.1-2build2_arm64.deb ...
+#7 62.30 Unpacking libmpdec3:arm64 (2.5.1-2build2) ...
+#7 62.32 Selecting previously unselected package readline-common.
+#7 62.32 Preparing to unpack .../3-readline-common_8.1.2-1_all.deb ...
+#7 62.32 Unpacking readline-common (8.1.2-1) ...
+#7 62.34 Selecting previously unselected package libreadline8:arm64.
+#7 62.34 Preparing to unpack .../4-libreadline8_8.1.2-1_arm64.deb ...
+#7 62.34 Unpacking libreadline8:arm64 (8.1.2-1) ...
+#7 62.36 Selecting previously unselected package libsqlite3-0:arm64.
+#7 62.36 Preparing to unpack .../5-libsqlite3-0_3.37.2-2ubuntu0.8_arm64.deb ...
+#7 62.37 Unpacking libsqlite3-0:arm64 (3.37.2-2ubuntu0.8) ...
+#7 62.39 Selecting previously unselected package libpython3.10-stdlib:arm64.
+#7 62.39 Preparing to unpack .../6-libpython3.10-stdlib_3.10.12-1~22.04.18_arm64.deb ...
+#7 62.39 Unpacking libpython3.10-stdlib:arm64 (3.10.12-1~22.04.18) ...
+#7 62.51 Selecting previously unselected package python3.10.
+#7 62.51 Preparing to unpack .../7-python3.10_3.10.12-1~22.04.18_arm64.deb ...
+#7 62.51 Unpacking python3.10 (3.10.12-1~22.04.18) ...
+#7 62.53 Selecting previously unselected package libpython3-stdlib:arm64.
+#7 62.53 Preparing to unpack .../8-libpython3-stdlib_3.10.6-1~22.04.1_arm64.deb ...
+#7 62.53 Unpacking libpython3-stdlib:arm64 (3.10.6-1~22.04.1) ...
+#7 62.55 Setting up python3-minimal (3.10.6-1~22.04.1) ...
+#7 62.68 Selecting previously unselected package python3.
+#7 62.68 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 11779 files and directories currently installed.)
+#7 62.68 Preparing to unpack .../0-python3_3.10.6-1~22.04.1_arm64.deb ...
+#7 62.69 Unpacking python3 (3.10.6-1~22.04.1) ...
+#7 62.70 Selecting previously unselected package libapparmor1:arm64.
+#7 62.71 Preparing to unpack .../1-libapparmor1_3.0.4-2ubuntu2.5_arm64.deb ...
+#7 62.71 Unpacking libapparmor1:arm64 (3.0.4-2ubuntu2.5) ...
+#7 62.72 Selecting previously unselected package libargon2-1:arm64.
+#7 62.72 Preparing to unpack .../2-libargon2-1_0~20171227-0.3_arm64.deb ...
+#7 62.72 Unpacking libargon2-1:arm64 (0~20171227-0.3) ...
+#7 62.74 Selecting previously unselected package libdevmapper1.02.1:arm64.
+#7 62.74 Preparing to unpack .../3-libdevmapper1.02.1_2%3a1.02.175-2.1ubuntu5_arm64.deb ...
+#7 62.74 Unpacking libdevmapper1.02.1:arm64 (2:1.02.175-2.1ubuntu5) ...
+#7 62.76 Selecting previously unselected package libjson-c5:arm64.
+#7 62.76 Preparing to unpack .../4-libjson-c5_0.15-3~ubuntu1.22.04.2_arm64.deb ...
+#7 62.76 Unpacking libjson-c5:arm64 (0.15-3~ubuntu1.22.04.2) ...
+#7 62.77 Selecting previously unselected package libcryptsetup12:arm64.
+#7 62.78 Preparing to unpack .../5-libcryptsetup12_2%3a2.4.3-1ubuntu1.3_arm64.deb ...
+#7 62.78 Unpacking libcryptsetup12:arm64 (2:2.4.3-1ubuntu1.3) ...
+#7 62.79 Selecting previously unselected package libip4tc2:arm64.
+#7 62.79 Preparing to unpack .../6-libip4tc2_1.8.7-1ubuntu5.2_arm64.deb ...
+#7 62.80 Unpacking libip4tc2:arm64 (1.8.7-1ubuntu5.2) ...
+#7 62.81 Selecting previously unselected package libkmod2:arm64.
+#7 62.81 Preparing to unpack .../7-libkmod2_29-1ubuntu1.1_arm64.deb ...
+#7 62.81 Unpacking libkmod2:arm64 (29-1ubuntu1.1) ...
+#7 62.83 Selecting previously unselected package systemd.
+#7 62.83 Preparing to unpack .../8-systemd_249.11-0ubuntu3.23_arm64.deb ...
+#7 62.84 Unpacking systemd (249.11-0ubuntu3.23) ...
+#7 63.02 Setting up libapparmor1:arm64 (3.0.4-2ubuntu2.5) ...
+#7 63.02 Setting up libargon2-1:arm64 (0~20171227-0.3) ...
+#7 63.03 Setting up libdevmapper1.02.1:arm64 (2:1.02.175-2.1ubuntu5) ...
+#7 63.03 Setting up libjson-c5:arm64 (0.15-3~ubuntu1.22.04.2) ...
+#7 63.04 Setting up libcryptsetup12:arm64 (2:2.4.3-1ubuntu1.3) ...
+#7 63.04 Setting up libip4tc2:arm64 (1.8.7-1ubuntu5.2) ...
+#7 63.05 Setting up libkmod2:arm64 (29-1ubuntu1.1) ...
+#7 63.05 Setting up systemd (249.11-0ubuntu3.23) ...
+#7 63.07 Created symlink /etc/systemd/system/getty.target.wants/getty@tty1.service → /lib/systemd/system/getty@.service.
+#7 63.07 Created symlink /etc/systemd/system/multi-user.target.wants/remote-fs.target → /lib/systemd/system/remote-fs.target.
+#7 63.07 Created symlink /etc/systemd/system/dbus-org.freedesktop.resolve1.service → /lib/systemd/system/systemd-resolved.service.
+#7 63.07 Created symlink /etc/systemd/system/multi-user.target.wants/systemd-resolved.service → /lib/systemd/system/systemd-resolved.service.
+#7 63.08 ln: failed to create symbolic link '/etc/resolv.conf': Device or resource busy
+#7 63.08 Created symlink /etc/systemd/system/sysinit.target.wants/systemd-pstore.service → /lib/systemd/system/systemd-pstore.service.
+#7 63.09 Initializing machine ID from random generator.
+#7 63.31 Selecting previously unselected package systemd-sysv.
+#7 63.31 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 12616 files and directories currently installed.)
+#7 63.32 Preparing to unpack .../000-systemd-sysv_249.11-0ubuntu3.23_arm64.deb ...
+#7 63.32 Unpacking systemd-sysv (249.11-0ubuntu3.23) ...
+#7 63.34 Selecting previously unselected package libdbus-1-3:arm64.
+#7 63.34 Preparing to unpack .../001-libdbus-1-3_1.12.20-2ubuntu4.1_arm64.deb ...
+#7 63.35 Unpacking libdbus-1-3:arm64 (1.12.20-2ubuntu4.1) ...
+#7 63.37 Selecting previously unselected package dbus.
+#7 63.37 Preparing to unpack .../002-dbus_1.12.20-2ubuntu4.1_arm64.deb ...
+#7 63.38 Unpacking dbus (1.12.20-2ubuntu4.1) ...
+#7 63.40 Selecting previously unselected package dmsetup.
+#7 63.40 Preparing to unpack .../003-dmsetup_2%3a1.02.175-2.1ubuntu5_arm64.deb ...
+#7 63.40 Unpacking dmsetup (2:1.02.175-2.1ubuntu5) ...
+#7 63.42 Selecting previously unselected package libglib2.0-0:arm64.
+#7 63.42 Preparing to unpack .../004-libglib2.0-0_2.72.4-0ubuntu2.11_arm64.deb ...
+#7 63.42 Unpacking libglib2.0-0:arm64 (2.72.4-0ubuntu2.11) ...
+#7 63.47 Selecting previously unselected package libgirepository-1.0-1:arm64.
+#7 63.47 Preparing to unpack .../005-libgirepository-1.0-1_1.72.0-1_arm64.deb ...
+#7 63.47 Unpacking libgirepository-1.0-1:arm64 (1.72.0-1) ...
+#7 63.48 Selecting previously unselected package gir1.2-glib-2.0:arm64.
+#7 63.48 Preparing to unpack .../006-gir1.2-glib-2.0_1.72.0-1_arm64.deb ...
+#7 63.49 Unpacking gir1.2-glib-2.0:arm64 (1.72.0-1) ...
+#7 63.51 Selecting previously unselected package libmd0:arm64.
+#7 63.51 Preparing to unpack .../007-libmd0_1.0.4-1build1_arm64.deb ...
+#7 63.51 Unpacking libmd0:arm64 (1.0.4-1build1) ...
+#7 63.53 Selecting previously unselected package libbsd0:arm64.
+#7 63.53 Preparing to unpack .../008-libbsd0_0.11.5-1_arm64.deb ...
+#7 63.53 Unpacking libbsd0:arm64 (0.11.5-1) ...
+#7 63.55 Selecting previously unselected package libelf1:arm64.
+#7 63.55 Preparing to unpack .../009-libelf1_0.186-1ubuntu0.1_arm64.deb ...
+#7 63.55 Unpacking libelf1:arm64 (0.186-1ubuntu0.1) ...
+#7 63.57 Selecting previously unselected package libfribidi0:arm64.
+#7 63.57 Preparing to unpack .../010-libfribidi0_1.0.8-2ubuntu3.1_arm64.deb ...
+#7 63.57 Unpacking libfribidi0:arm64 (1.0.8-2ubuntu3.1) ...
+#7 63.58 Selecting previously unselected package libglib2.0-data.
+#7 63.58 Preparing to unpack .../011-libglib2.0-data_2.72.4-0ubuntu2.11_all.deb ...
+#7 63.59 Unpacking libglib2.0-data (2.72.4-0ubuntu2.11) ...
+#7 63.60 Selecting previously unselected package libicu70:arm64.
+#7 63.60 Preparing to unpack .../012-libicu70_70.1-2_arm64.deb ...
+#7 63.60 Unpacking libicu70:arm64 (70.1-2) ...
+#7 63.83 Selecting previously unselected package libnss-systemd:arm64.
+#7 63.83 Preparing to unpack .../013-libnss-systemd_249.11-0ubuntu3.23_arm64.deb ...
+#7 63.83 Unpacking libnss-systemd:arm64 (249.11-0ubuntu3.23) ...
+#7 63.85 Selecting previously unselected package libpam-systemd:arm64.
+#7 63.85 Preparing to unpack .../014-libpam-systemd_249.11-0ubuntu3.23_arm64.deb ...
+#7 63.85 Unpacking libpam-systemd:arm64 (249.11-0ubuntu3.23) ...
+#7 63.87 Selecting previously unselected package libxml2:arm64.
+#7 63.87 Preparing to unpack .../015-libxml2_2.9.13+dfsg-1ubuntu0.14_arm64.deb ...
+#7 63.88 Unpacking libxml2:arm64 (2.9.13+dfsg-1ubuntu0.14) ...
+#7 63.91 Selecting previously unselected package python3-dbus.
+#7 63.91 Preparing to unpack .../016-python3-dbus_1.2.18-3build1_arm64.deb ...
+#7 63.91 Unpacking python3-dbus (1.2.18-3build1) ...
+#7 63.93 Selecting previously unselected package python3-gi.
+#7 63.93 Preparing to unpack .../017-python3-gi_3.42.1-0ubuntu1_arm64.deb ...
+#7 63.93 Unpacking python3-gi (3.42.1-0ubuntu1) ...
+#7 63.96 Selecting previously unselected package networkd-dispatcher.
+#7 63.96 Preparing to unpack .../018-networkd-dispatcher_2.1-2ubuntu0.22.04.2_all.deb ...
+#7 63.96 Unpacking networkd-dispatcher (2.1-2ubuntu0.22.04.2) ...
+#7 63.98 Selecting previously unselected package shared-mime-info.
+#7 63.98 Preparing to unpack .../019-shared-mime-info_2.1-2_arm64.deb ...
+#7 63.98 Unpacking shared-mime-info (2.1-2) ...
+#7 64.02 Selecting previously unselected package systemd-timesyncd.
+#7 64.02 Preparing to unpack .../020-systemd-timesyncd_249.11-0ubuntu3.23_arm64.deb ...
+#7 64.02 Unpacking systemd-timesyncd (249.11-0ubuntu3.23) ...
+#7 64.04 Selecting previously unselected package xdg-user-dirs.
+#7 64.04 Preparing to unpack .../021-xdg-user-dirs_0.17-2ubuntu4_arm64.deb ...
+#7 64.05 Unpacking xdg-user-dirs (0.17-2ubuntu4) ...
+#7 64.11 Selecting previously unselected package xkb-data.
+#7 64.11 Preparing to unpack .../022-xkb-data_2.33-1_all.deb ...
+#7 64.11 Unpacking xkb-data (2.33-1) ...
+#7 64.18 Selecting previously unselected package libdrm-common.
+#7 64.18 Preparing to unpack .../023-libdrm-common_2.4.113-2~ubuntu0.22.04.1_all.deb ...
+#7 64.18 Unpacking libdrm-common (2.4.113-2~ubuntu0.22.04.1) ...
+#7 64.20 Selecting previously unselected package libdrm2:arm64.
+#7 64.20 Preparing to unpack .../024-libdrm2_2.4.113-2~ubuntu0.22.04.1_arm64.deb ...
+#7 64.21 Unpacking libdrm2:arm64 (2.4.113-2~ubuntu0.22.04.1) ...
+#7 64.22 Selecting previously unselected package libedit2:arm64.
+#7 64.22 Preparing to unpack .../025-libedit2_3.1-20210910-1build1_arm64.deb ...
+#7 64.22 Unpacking libedit2:arm64 (3.1-20210910-1build1) ...
+#7 64.24 Selecting previously unselected package libxau6:arm64.
+#7 64.24 Preparing to unpack .../026-libxau6_1%3a1.0.9-1build5_arm64.deb ...
+#7 64.24 Unpacking libxau6:arm64 (1:1.0.9-1build5) ...
+#7 64.26 Selecting previously unselected package libxdmcp6:arm64.
+#7 64.26 Preparing to unpack .../027-libxdmcp6_1%3a1.1.3-0ubuntu5_arm64.deb ...
+#7 64.26 Unpacking libxdmcp6:arm64 (1:1.1.3-0ubuntu5) ...
+#7 64.28 Selecting previously unselected package libxcb1:arm64.
+#7 64.28 Preparing to unpack .../028-libxcb1_1.14-3ubuntu3_arm64.deb ...
+#7 64.28 Unpacking libxcb1:arm64 (1.14-3ubuntu3) ...
+#7 64.29 Selecting previously unselected package libx11-data.
+#7 64.29 Preparing to unpack .../029-libx11-data_2%3a1.7.5-1ubuntu0.4_all.deb ...
+#7 64.30 Unpacking libx11-data (2:1.7.5-1ubuntu0.4) ...
+#7 64.35 Selecting previously unselected package libx11-6:arm64.
+#7 64.35 Preparing to unpack .../030-libx11-6_2%3a1.7.5-1ubuntu0.4_arm64.deb ...
+#7 64.36 Unpacking libx11-6:arm64 (2:1.7.5-1ubuntu0.4) ...
+#7 64.38 Selecting previously unselected package libxext6:arm64.
+#7 64.38 Preparing to unpack .../031-libxext6_2%3a1.3.4-1build1_arm64.deb ...
+#7 64.38 Unpacking libxext6:arm64 (2:1.3.4-1build1) ...
+#7 64.40 Selecting previously unselected package libxmuu1:arm64.
+#7 64.40 Preparing to unpack .../032-libxmuu1_2%3a1.1.3-3_arm64.deb ...
+#7 64.40 Unpacking libxmuu1:arm64 (2:1.1.3-3) ...
+#7 64.41 Selecting previously unselected package xauth.
+#7 64.41 Preparing to unpack .../033-xauth_1%3a1.1-1build2_arm64.deb ...
+#7 64.41 Unpacking xauth (1:1.1-1build2) ...
+#7 64.43 Selecting previously unselected package hicolor-icon-theme.
+#7 64.43 Preparing to unpack .../034-hicolor-icon-theme_0.17-2_all.deb ...
+#7 64.43 Unpacking hicolor-icon-theme (0.17-2) ...
+#7 64.55 Selecting previously unselected package libgdk-pixbuf2.0-common.
+#7 64.55 Preparing to unpack .../035-libgdk-pixbuf2.0-common_2.42.8+dfsg-1ubuntu0.5_all.deb ...
+#7 64.55 Unpacking libgdk-pixbuf2.0-common (2.42.8+dfsg-1ubuntu0.5) ...
+#7 64.57 Selecting previously unselected package libjpeg-turbo8:arm64.
+#7 64.57 Preparing to unpack .../036-libjpeg-turbo8_2.1.2-0ubuntu1_arm64.deb ...
+#7 64.58 Unpacking libjpeg-turbo8:arm64 (2.1.2-0ubuntu1) ...
+#7 64.59 Selecting previously unselected package libjpeg8:arm64.
+#7 64.59 Preparing to unpack .../037-libjpeg8_8c-2ubuntu10_arm64.deb ...
+#7 64.60 Unpacking libjpeg8:arm64 (8c-2ubuntu10) ...
+#7 64.61 Selecting previously unselected package libdeflate0:arm64.
+#7 64.61 Preparing to unpack .../038-libdeflate0_1.10-2_arm64.deb ...
+#7 64.61 Unpacking libdeflate0:arm64 (1.10-2) ...
+#7 64.63 Selecting previously unselected package libjbig0:arm64.
+#7 64.63 Preparing to unpack .../039-libjbig0_2.1-3.1ubuntu0.22.04.1_arm64.deb ...
+#7 64.63 Unpacking libjbig0:arm64 (2.1-3.1ubuntu0.22.04.1) ...
+#7 64.65 Selecting previously unselected package libwebp7:arm64.
+#7 64.65 Preparing to unpack .../040-libwebp7_1.2.2-2ubuntu0.22.04.2_arm64.deb ...
+#7 64.65 Unpacking libwebp7:arm64 (1.2.2-2ubuntu0.22.04.2) ...
+#7 64.67 Selecting previously unselected package libtiff5:arm64.
+#7 64.67 Preparing to unpack .../041-libtiff5_4.3.0-6ubuntu0.13_arm64.deb ...
+#7 64.67 Unpacking libtiff5:arm64 (4.3.0-6ubuntu0.13) ...
+#7 64.69 Selecting previously unselected package libgdk-pixbuf-2.0-0:arm64.
+#7 64.69 Preparing to unpack .../042-libgdk-pixbuf-2.0-0_2.42.8+dfsg-1ubuntu0.5_arm64.deb ...
+#7 64.69 Unpacking libgdk-pixbuf-2.0-0:arm64 (2.42.8+dfsg-1ubuntu0.5) ...
+#7 64.71 Selecting previously unselected package gtk-update-icon-cache.
+#7 64.71 Preparing to unpack .../043-gtk-update-icon-cache_3.24.33-1ubuntu2.2_arm64.deb ...
+#7 64.71 Unpacking gtk-update-icon-cache (3.24.33-1ubuntu2.2) ...
+#7 64.73 Selecting previously unselected package humanity-icon-theme.
+#7 64.73 Preparing to unpack .../044-humanity-icon-theme_0.6.16_all.deb ...
+#7 64.73 Unpacking humanity-icon-theme (0.6.16) ...
+#7 65.58 Selecting previously unselected package ubuntu-mono.
+#7 65.58 Preparing to unpack .../045-ubuntu-mono_20.10-0ubuntu2_all.deb ...
+#7 65.59 Unpacking ubuntu-mono (20.10-0ubuntu2) ...
+#7 65.93 Selecting previously unselected package adwaita-icon-theme.
+#7 65.93 Preparing to unpack .../046-adwaita-icon-theme_41.0-1ubuntu1_all.deb ...
+#7 65.94 Unpacking adwaita-icon-theme (41.0-1ubuntu1) ...
+#7 66.18 Selecting previously unselected package alsa-topology-conf.
+#7 66.18 Preparing to unpack .../047-alsa-topology-conf_1.2.5.1-2_all.deb ...
+#7 66.18 Unpacking alsa-topology-conf (1.2.5.1-2) ...
+#7 66.20 Selecting previously unselected package libasound2-data.
+#7 66.20 Preparing to unpack .../048-libasound2-data_1.2.6.1-1ubuntu1.2_all.deb ...
+#7 66.21 Unpacking libasound2-data (1.2.6.1-1ubuntu1.2) ...
+#7 66.30 Selecting previously unselected package libasound2:arm64.
+#7 66.31 Preparing to unpack .../049-libasound2_1.2.6.1-1ubuntu1.2_arm64.deb ...
+#7 66.31 Unpacking libasound2:arm64 (1.2.6.1-1ubuntu1.2) ...
+#7 66.33 Selecting previously unselected package alsa-ucm-conf.
+#7 66.33 Preparing to unpack .../050-alsa-ucm-conf_1.2.6.3-1ubuntu1.12_all.deb ...
+#7 66.33 Unpacking alsa-ucm-conf (1.2.6.3-1ubuntu1.12) ...
+#7 66.41 Selecting previously unselected package libxi6:arm64.
+#7 66.41 Preparing to unpack .../051-libxi6_2%3a1.8-1build1_arm64.deb ...
+#7 66.41 Unpacking libxi6:arm64 (2:1.8-1build1) ...
+#7 66.43 Selecting previously unselected package libatspi2.0-0:arm64.
+#7 66.43 Preparing to unpack .../052-libatspi2.0-0_2.44.0-3_arm64.deb ...
+#7 66.43 Unpacking libatspi2.0-0:arm64 (2.44.0-3) ...
+#7 66.45 Selecting previously unselected package x11-common.
+#7 66.45 Preparing to unpack .../053-x11-common_1%3a7.7+23ubuntu2_all.deb ...
+#7 66.45 Unpacking x11-common (1:7.7+23ubuntu2) ...
+#7 66.47 Selecting previously unselected package libxtst6:arm64.
+#7 66.47 Preparing to unpack .../054-libxtst6_2%3a1.2.3-1ubuntu0.22.04.1_arm64.deb ...
+#7 66.48 Unpacking libxtst6:arm64 (2:1.2.3-1ubuntu0.22.04.1) ...
+#7 66.49 Selecting previously unselected package dbus-user-session.
+#7 66.49 Preparing to unpack .../055-dbus-user-session_1.12.20-2ubuntu4.1_arm64.deb ...
+#7 66.50 Unpacking dbus-user-session (1.12.20-2ubuntu4.1) ...
+#7 66.51 Selecting previously unselected package libdconf1:arm64.
+#7 66.52 Preparing to unpack .../056-libdconf1_0.40.0-3ubuntu0.1_arm64.deb ...
+#7 66.52 Unpacking libdconf1:arm64 (0.40.0-3ubuntu0.1) ...
+#7 66.53 Selecting previously unselected package dconf-service.
+#7 66.53 Preparing to unpack .../057-dconf-service_0.40.0-3ubuntu0.1_arm64.deb ...
+#7 66.54 Unpacking dconf-service (0.40.0-3ubuntu0.1) ...
+#7 66.55 Selecting previously unselected package dconf-gsettings-backend:arm64.
+#7 66.55 Preparing to unpack .../058-dconf-gsettings-backend_0.40.0-3ubuntu0.1_arm64.deb ...
+#7 66.55 Unpacking dconf-gsettings-backend:arm64 (0.40.0-3ubuntu0.1) ...
+#7 66.57 Selecting previously unselected package session-migration.
+#7 66.57 Preparing to unpack .../059-session-migration_0.3.6_arm64.deb ...
+#7 66.57 Unpacking session-migration (0.3.6) ...
+#7 66.59 Selecting previously unselected package gsettings-desktop-schemas.
+#7 66.59 Preparing to unpack .../060-gsettings-desktop-schemas_42.0-1ubuntu1_all.deb ...
+#7 66.59 Unpacking gsettings-desktop-schemas (42.0-1ubuntu1) ...
+#7 66.61 Selecting previously unselected package at-spi2-core.
+#7 66.61 Preparing to unpack .../061-at-spi2-core_2.44.0-3_arm64.deb ...
+#7 66.61 Unpacking at-spi2-core (2.44.0-3) ...
+#7 66.63 Selecting previously unselected package fonts-noto-cjk.
+#7 66.64 Preparing to unpack .../062-fonts-noto-cjk_1%3a20220127+repack1-1_all.deb ...
+#7 66.64 Unpacking fonts-noto-cjk (1:20220127+repack1-1) ...
+#7 67.26 Selecting previously unselected package fonts-noto-core.
+#7 67.26 Preparing to unpack .../063-fonts-noto-core_20201225-1build1_all.deb ...
+#7 67.26 Unpacking fonts-noto-core (20201225-1build1) ...
+#7 72.96 Selecting previously unselected package libatk1.0-data.
+#7 72.98 Preparing to unpack .../064-libatk1.0-data_2.36.0-3build1_all.deb ...
+#7 72.98 Unpacking libatk1.0-data (2.36.0-3build1) ...
+#7 73.02 Selecting previously unselected package libatk1.0-0:arm64.
+#7 73.03 Preparing to unpack .../065-libatk1.0-0_2.36.0-3build1_arm64.deb ...
+#7 73.03 Unpacking libatk1.0-0:arm64 (2.36.0-3build1) ...
+#7 73.06 Selecting previously unselected package libatk-bridge2.0-0:arm64.
+#7 73.06 Preparing to unpack .../066-libatk-bridge2.0-0_2.38.0-3_arm64.deb ...
+#7 73.06 Unpacking libatk-bridge2.0-0:arm64 (2.38.0-3) ...
+#7 73.08 Selecting previously unselected package libavahi-common-data:arm64.
+#7 73.09 Preparing to unpack .../067-libavahi-common-data_0.8-5ubuntu5.5_arm64.deb ...
+#7 73.09 Unpacking libavahi-common-data:arm64 (0.8-5ubuntu5.5) ...
+#7 73.11 Selecting previously unselected package libavahi-common3:arm64.
+#7 73.11 Preparing to unpack .../068-libavahi-common3_0.8-5ubuntu5.5_arm64.deb ...
+#7 73.12 Unpacking libavahi-common3:arm64 (0.8-5ubuntu5.5) ...
+#7 73.14 Selecting previously unselected package libavahi-client3:arm64.
+#7 73.14 Preparing to unpack .../069-libavahi-client3_0.8-5ubuntu5.5_arm64.deb ...
+#7 73.14 Unpacking libavahi-client3:arm64 (0.8-5ubuntu5.5) ...
+#7 73.16 Selecting previously unselected package libpixman-1-0:arm64.
+#7 73.17 Preparing to unpack .../070-libpixman-1-0_0.40.0-1ubuntu0.22.04.1_arm64.deb ...
+#7 73.17 Unpacking libpixman-1-0:arm64 (0.40.0-1ubuntu0.22.04.1) ...
+#7 73.19 Selecting previously unselected package libxcb-render0:arm64.
+#7 73.19 Preparing to unpack .../071-libxcb-render0_1.14-3ubuntu3_arm64.deb ...
+#7 73.19 Unpacking libxcb-render0:arm64 (1.14-3ubuntu3) ...
+#7 73.22 Selecting previously unselected package libxcb-shm0:arm64.
+#7 73.22 Preparing to unpack .../072-libxcb-shm0_1.14-3ubuntu3_arm64.deb ...
+#7 73.22 Unpacking libxcb-shm0:arm64 (1.14-3ubuntu3) ...
+#7 73.24 Selecting previously unselected package libxrender1:arm64.
+#7 73.25 Preparing to unpack .../073-libxrender1_1%3a0.9.10-1build4_arm64.deb ...
+#7 73.25 Unpacking libxrender1:arm64 (1:0.9.10-1build4) ...
+#7 73.27 Selecting previously unselected package libcairo2:arm64.
+#7 73.27 Preparing to unpack .../074-libcairo2_1.16.0-5ubuntu2.1_arm64.deb ...
+#7 73.27 Unpacking libcairo2:arm64 (1.16.0-5ubuntu2.1) ...
+#7 73.29 Selecting previously unselected package libcairo-gobject2:arm64.
+#7 73.30 Preparing to unpack .../075-libcairo-gobject2_1.16.0-5ubuntu2.1_arm64.deb ...
+#7 73.30 Unpacking libcairo-gobject2:arm64 (1.16.0-5ubuntu2.1) ...
+#7 73.32 Selecting previously unselected package liblcms2-2:arm64.
+#7 73.32 Preparing to unpack .../076-liblcms2-2_2.12~rc1-2ubuntu0.1_arm64.deb ...
+#7 73.32 Unpacking liblcms2-2:arm64 (2.12~rc1-2ubuntu0.1) ...
+#7 73.37 Selecting previously unselected package libcolord2:arm64.
+#7 73.37 Preparing to unpack .../077-libcolord2_1.4.6-1_arm64.deb ...
+#7 73.38 Unpacking libcolord2:arm64 (1.4.6-1) ...
+#7 73.40 Selecting previously unselected package libcups2:arm64.
+#7 73.40 Preparing to unpack .../078-libcups2_2.4.1op1-1ubuntu4.21_arm64.deb ...
+#7 73.41 Unpacking libcups2:arm64 (2.4.1op1-1ubuntu4.21) ...
+#7 73.43 Selecting previously unselected package libdatrie1:arm64.
+#7 73.43 Preparing to unpack .../079-libdatrie1_0.2.13-2_arm64.deb ...
+#7 73.44 Unpacking libdatrie1:arm64 (0.2.13-2) ...
+#7 73.46 Selecting previously unselected package libdrm-amdgpu1:arm64.
+#7 73.46 Preparing to unpack .../080-libdrm-amdgpu1_2.4.113-2~ubuntu0.22.04.1_arm64.deb ...
+#7 73.46 Unpacking libdrm-amdgpu1:arm64 (2.4.113-2~ubuntu0.22.04.1) ...
+#7 73.48 Selecting previously unselected package libdrm-nouveau2:arm64.
+#7 73.48 Preparing to unpack .../081-libdrm-nouveau2_2.4.113-2~ubuntu0.22.04.1_arm64.deb ...
+#7 73.48 Unpacking libdrm-nouveau2:arm64 (2.4.113-2~ubuntu0.22.04.1) ...
+#7 73.50 Selecting previously unselected package libdrm-radeon1:arm64.
+#7 73.50 Preparing to unpack .../082-libdrm-radeon1_2.4.113-2~ubuntu0.22.04.1_arm64.deb ...
+#7 73.51 Unpacking libdrm-radeon1:arm64 (2.4.113-2~ubuntu0.22.04.1) ...
+#7 73.52 Selecting previously unselected package libepoxy0:arm64.
+#7 73.53 Preparing to unpack .../083-libepoxy0_1.5.10-1_arm64.deb ...
+#7 73.55 Unpacking libepoxy0:arm64 (1.5.10-1) ...
+#7 73.58 Selecting previously unselected package libfontenc1:arm64.
+#7 73.58 Preparing to unpack .../084-libfontenc1_1%3a1.1.4-1build3_arm64.deb ...
+#7 73.58 Unpacking libfontenc1:arm64 (1:1.1.4-1build3) ...
+#7 73.60 Selecting previously unselected package libgdk-pixbuf2.0-bin.
+#7 73.60 Preparing to unpack .../085-libgdk-pixbuf2.0-bin_2.42.8+dfsg-1ubuntu0.5_arm64.deb ...
+#7 73.60 Unpacking libgdk-pixbuf2.0-bin (2.42.8+dfsg-1ubuntu0.5) ...
+#7 73.62 Selecting previously unselected package libglapi-mesa:arm64.
+#7 73.63 Preparing to unpack .../086-libglapi-mesa_23.2.1-1ubuntu3.1~22.04.4_arm64.deb ...
+#7 73.63 Unpacking libglapi-mesa:arm64 (23.2.1-1ubuntu3.1~22.04.4) ...
+#7 73.65 Selecting previously unselected package libgl1-amber-dri:arm64.
+#7 73.65 Preparing to unpack .../087-libgl1-amber-dri_21.3.9-0ubuntu1~22.04.2_arm64.deb ...
+#7 73.65 Unpacking libgl1-amber-dri:arm64 (21.3.9-0ubuntu1~22.04.2) ...
+#7 73.76 Selecting previously unselected package libllvm15:arm64.
+#7 73.77 Preparing to unpack .../088-libllvm15_1%3a15.0.7-0ubuntu0.22.04.3_arm64.deb ...
+#7 73.77 Unpacking libllvm15:arm64 (1:15.0.7-0ubuntu0.22.04.3) ...
+#7 74.90 Selecting previously unselected package libsensors-config.
+#7 74.90 Preparing to unpack .../089-libsensors-config_1%3a3.6.0-7ubuntu1_all.deb ...
+#7 74.91 Unpacking libsensors-config (1:3.6.0-7ubuntu1) ...
+#7 74.93 Selecting previously unselected package libsensors5:arm64.
+#7 74.94 Preparing to unpack .../090-libsensors5_1%3a3.6.0-7ubuntu1_arm64.deb ...
+#7 75.00 Unpacking libsensors5:arm64 (1:3.6.0-7ubuntu1) ...
+#7 75.03 Selecting previously unselected package libxcb-dri3-0:arm64.
+#7 75.03 Preparing to unpack .../091-libxcb-dri3-0_1.14-3ubuntu3_arm64.deb ...
+#7 75.03 Unpacking libxcb-dri3-0:arm64 (1.14-3ubuntu3) ...
+#7 75.07 Selecting previously unselected package libgl1-mesa-dri:arm64.
+#7 75.07 Preparing to unpack .../092-libgl1-mesa-dri_23.2.1-1ubuntu3.1~22.04.4_arm64.deb ...
+#7 75.08 Unpacking libgl1-mesa-dri:arm64 (23.2.1-1ubuntu3.1~22.04.4) ...
+#7 75.31 Selecting previously unselected package libx11-xcb1:arm64.
+#7 75.32 Preparing to unpack .../093-libx11-xcb1_2%3a1.7.5-1ubuntu0.4_arm64.deb ...
+#7 75.32 Unpacking libx11-xcb1:arm64 (2:1.7.5-1ubuntu0.4) ...
+#7 75.34 Selecting previously unselected package libxcb-dri2-0:arm64.
+#7 75.35 Preparing to unpack .../094-libxcb-dri2-0_1.14-3ubuntu3_arm64.deb ...
+#7 75.36 Unpacking libxcb-dri2-0:arm64 (1.14-3ubuntu3) ...
+#7 75.38 Selecting previously unselected package libxcb-glx0:arm64.
+#7 75.39 Preparing to unpack .../095-libxcb-glx0_1.14-3ubuntu3_arm64.deb ...
+#7 75.39 Unpacking libxcb-glx0:arm64 (1.14-3ubuntu3) ...
+#7 75.41 Selecting previously unselected package libxcb-present0:arm64.
+#7 75.41 Preparing to unpack .../096-libxcb-present0_1.14-3ubuntu3_arm64.deb ...
+#7 75.42 Unpacking libxcb-present0:arm64 (1.14-3ubuntu3) ...
+#7 75.44 Selecting previously unselected package libxcb-randr0:arm64.
+#7 75.44 Preparing to unpack .../097-libxcb-randr0_1.14-3ubuntu3_arm64.deb ...
+#7 75.44 Unpacking libxcb-randr0:arm64 (1.14-3ubuntu3) ...
+#7 75.46 Selecting previously unselected package libxcb-sync1:arm64.
+#7 75.47 Preparing to unpack .../098-libxcb-sync1_1.14-3ubuntu3_arm64.deb ...
+#7 75.47 Unpacking libxcb-sync1:arm64 (1.14-3ubuntu3) ...
+#7 75.49 Selecting previously unselected package libxcb-xfixes0:arm64.
+#7 75.49 Preparing to unpack .../099-libxcb-xfixes0_1.14-3ubuntu3_arm64.deb ...
+#7 75.49 Unpacking libxcb-xfixes0:arm64 (1.14-3ubuntu3) ...
+#7 75.51 Selecting previously unselected package libxfixes3:arm64.
+#7 75.52 Preparing to unpack .../100-libxfixes3_1%3a6.0.0-1_arm64.deb ...
+#7 75.52 Unpacking libxfixes3:arm64 (1:6.0.0-1) ...
+#7 75.54 Selecting previously unselected package libxshmfence1:arm64.
+#7 75.54 Preparing to unpack .../101-libxshmfence1_1.3-1build4_arm64.deb ...
+#7 75.54 Unpacking libxshmfence1:arm64 (1.3-1build4) ...
+#7 75.56 Selecting previously unselected package libxxf86vm1:arm64.
+#7 75.57 Preparing to unpack .../102-libxxf86vm1_1%3a1.1.4-1build3_arm64.deb ...
+#7 75.57 Unpacking libxxf86vm1:arm64 (1:1.1.4-1build3) ...
+#7 75.59 Selecting previously unselected package libglx-mesa0:arm64.
+#7 75.59 Preparing to unpack .../103-libglx-mesa0_23.2.1-1ubuntu3.1~22.04.4_arm64.deb ...
+#7 75.59 Unpacking libglx-mesa0:arm64 (23.2.1-1ubuntu3.1~22.04.4) ...
+#7 75.61 Selecting previously unselected package libgraphite2-3:arm64.
+#7 75.62 Preparing to unpack .../104-libgraphite2-3_1.3.14-1ubuntu0.1_arm64.deb ...
+#7 75.62 Unpacking libgraphite2-3:arm64 (1.3.14-1ubuntu0.1) ...
+#7 75.64 Selecting previously unselected package libharfbuzz0b:arm64.
+#7 75.64 Preparing to unpack .../105-libharfbuzz0b_2.7.4-1ubuntu3.2_arm64.deb ...
+#7 75.65 Unpacking libharfbuzz0b:arm64 (2.7.4-1ubuntu3.2) ...
+#7 75.67 Selecting previously unselected package libthai-data.
+#7 75.68 Preparing to unpack .../106-libthai-data_0.1.29-1build1_all.deb ...
+#7 75.68 Unpacking libthai-data (0.1.29-1build1) ...
+#7 75.70 Selecting previously unselected package libthai0:arm64.
+#7 75.70 Preparing to unpack .../107-libthai0_0.1.29-1build1_arm64.deb ...
+#7 75.70 Unpacking libthai0:arm64 (0.1.29-1build1) ...
+#7 75.72 Selecting previously unselected package libpango-1.0-0:arm64.
+#7 75.73 Preparing to unpack .../108-libpango-1.0-0_1.50.6+ds-2ubuntu1_arm64.deb ...
+#7 75.73 Unpacking libpango-1.0-0:arm64 (1.50.6+ds-2ubuntu1) ...
+#7 75.75 Selecting previously unselected package libpangoft2-1.0-0:arm64.
+#7 75.75 Preparing to unpack .../109-libpangoft2-1.0-0_1.50.6+ds-2ubuntu1_arm64.deb ...
+#7 75.75 Unpacking libpangoft2-1.0-0:arm64 (1.50.6+ds-2ubuntu1) ...
+#7 75.77 Selecting previously unselected package libpangocairo-1.0-0:arm64.
+#7 75.77 Preparing to unpack .../110-libpangocairo-1.0-0_1.50.6+ds-2ubuntu1_arm64.deb ...
+#7 75.78 Unpacking libpangocairo-1.0-0:arm64 (1.50.6+ds-2ubuntu1) ...
+#7 75.79 Selecting previously unselected package libwayland-client0:arm64.
+#7 75.80 Preparing to unpack .../111-libwayland-client0_1.20.0-1ubuntu0.1_arm64.deb ...
+#7 75.80 Unpacking libwayland-client0:arm64 (1.20.0-1ubuntu0.1) ...
+#7 75.82 Selecting previously unselected package libwayland-cursor0:arm64.
+#7 75.82 Preparing to unpack .../112-libwayland-cursor0_1.20.0-1ubuntu0.1_arm64.deb ...
+#7 75.82 Unpacking libwayland-cursor0:arm64 (1.20.0-1ubuntu0.1) ...
+#7 75.84 Selecting previously unselected package libwayland-egl1:arm64.
+#7 75.84 Preparing to unpack .../113-libwayland-egl1_1.20.0-1ubuntu0.1_arm64.deb ...
+#7 75.84 Unpacking libwayland-egl1:arm64 (1.20.0-1ubuntu0.1) ...
+#7 75.86 Selecting previously unselected package libxcomposite1:arm64.
+#7 75.86 Preparing to unpack .../114-libxcomposite1_1%3a0.4.5-1build2_arm64.deb ...
+#7 75.86 Unpacking libxcomposite1:arm64 (1:0.4.5-1build2) ...
+#7 75.88 Selecting previously unselected package libxcursor1:arm64.
+#7 75.88 Preparing to unpack .../115-libxcursor1_1%3a1.2.0-2build4_arm64.deb ...
+#7 75.88 Unpacking libxcursor1:arm64 (1:1.2.0-2build4) ...
+#7 75.90 Selecting previously unselected package libxdamage1:arm64.
+#7 75.90 Preparing to unpack .../116-libxdamage1_1%3a1.1.5-2build2_arm64.deb ...
+#7 75.91 Unpacking libxdamage1:arm64 (1:1.1.5-2build2) ...
+#7 75.92 Selecting previously unselected package libxinerama1:arm64.
+#7 75.92 Preparing to unpack .../117-libxinerama1_2%3a1.1.4-3_arm64.deb ...
+#7 75.93 Unpacking libxinerama1:arm64 (2:1.1.4-3) ...
+#7 75.94 Selecting previously unselected package libxkbcommon0:arm64.
+#7 75.94 Preparing to unpack .../118-libxkbcommon0_1.4.0-1_arm64.deb ...
+#7 75.95 Unpacking libxkbcommon0:arm64 (1.4.0-1) ...
+#7 75.96 Selecting previously unselected package libxrandr2:arm64.
+#7 75.97 Preparing to unpack .../119-libxrandr2_2%3a1.5.2-1build1_arm64.deb ...
+#7 75.97 Unpacking libxrandr2:arm64 (2:1.5.2-1build1) ...
+#7 75.99 Selecting previously unselected package libgtk-3-common.
+#7 75.99 Preparing to unpack .../120-libgtk-3-common_3.24.33-1ubuntu2.2_all.deb ...
+#7 75.99 Unpacking libgtk-3-common (3.24.33-1ubuntu2.2) ...
+#7 76.02 Selecting previously unselected package libgtk-3-0:arm64.
+#7 76.02 Preparing to unpack .../121-libgtk-3-0_3.24.33-1ubuntu2.2_arm64.deb ...
+#7 76.02 Unpacking libgtk-3-0:arm64 (3.24.33-1ubuntu2.2) ...
+#7 76.19 Selecting previously unselected package libgtk-3-bin.
+#7 76.19 Preparing to unpack .../122-libgtk-3-bin_3.24.33-1ubuntu2.2_arm64.deb ...
+#7 76.19 Unpacking libgtk-3-bin (3.24.33-1ubuntu2.2) ...
+#7 76.22 Selecting previously unselected package libice6:arm64.
+#7 76.22 Preparing to unpack .../123-libice6_2%3a1.0.10-1build2_arm64.deb ...
+#7 76.22 Unpacking libice6:arm64 (2:1.0.10-1build2) ...
+#7 76.24 Selecting previously unselected package liblzo2-2:arm64.
+#7 76.24 Preparing to unpack .../124-liblzo2-2_2.10-2build3_arm64.deb ...
+#7 76.24 Unpacking liblzo2-2:arm64 (2.10-2build3) ...
+#7 76.26 Selecting previously unselected package librsvg2-2:arm64.
+#7 76.27 Preparing to unpack .../125-librsvg2-2_2.52.5+dfsg-3ubuntu0.2_arm64.deb ...
+#7 76.27 Unpacking librsvg2-2:arm64 (2.52.5+dfsg-3ubuntu0.2) ...
+#7 76.34 Selecting previously unselected package librsvg2-common:arm64.
+#7 76.35 Preparing to unpack .../126-librsvg2-common_2.52.5+dfsg-3ubuntu0.2_arm64.deb ...
+#7 76.35 Unpacking librsvg2-common:arm64 (2.52.5+dfsg-3ubuntu0.2) ...
+#7 76.37 Selecting previously unselected package libsm6:arm64.
+#7 76.37 Preparing to unpack .../127-libsm6_2%3a1.2.3-1build2_arm64.deb ...
+#7 76.37 Unpacking libsm6:arm64 (2:1.2.3-1build2) ...
+#7 76.39 Selecting previously unselected package libtcl8.6:arm64.
+#7 76.39 Preparing to unpack .../128-libtcl8.6_8.6.12+dfsg-1build1_arm64.deb ...
+#7 76.39 Unpacking libtcl8.6:arm64 (8.6.12+dfsg-1build1) ...
+#7 76.46 Selecting previously unselected package libxft2:arm64.
+#7 76.46 Preparing to unpack .../129-libxft2_2.3.4-1_arm64.deb ...
+#7 76.46 Unpacking libxft2:arm64 (2.3.4-1) ...
+#7 76.48 Selecting previously unselected package libxss1:arm64.
+#7 76.48 Preparing to unpack .../130-libxss1_1%3a1.2.3-1build2_arm64.deb ...
+#7 76.49 Unpacking libxss1:arm64 (1:1.2.3-1build2) ...
+#7 76.51 Selecting previously unselected package libtk8.6:arm64.
+#7 76.51 Preparing to unpack .../131-libtk8.6_8.6.12-1build1_arm64.deb ...
+#7 76.51 Unpacking libtk8.6:arm64 (8.6.12-1build1) ...
+#7 76.56 Selecting previously unselected package libunwind8:arm64.
+#7 76.56 Preparing to unpack .../132-libunwind8_1.3.2-2build2.1_arm64.deb ...
+#7 76.56 Unpacking libunwind8:arm64 (1.3.2-2build2.1) ...
+#7 76.59 Selecting previously unselected package libutempter0:arm64.
+#7 76.59 Preparing to unpack .../133-libutempter0_1.2.1-2build2_arm64.deb ...
+#7 76.59 Unpacking libutempter0:arm64 (1.2.1-2build2) ...
+#7 76.62 Selecting previously unselected package libvncclient1:arm64.
+#7 76.62 Preparing to unpack .../134-libvncclient1_0.9.13+dfsg-3ubuntu0.2_arm64.deb ...
+#7 76.62 Unpacking libvncclient1:arm64 (0.9.13+dfsg-3ubuntu0.2) ...
+#7 76.64 Selecting previously unselected package libvncserver1:arm64.
+#7 76.64 Preparing to unpack .../135-libvncserver1_0.9.13+dfsg-3ubuntu0.2_arm64.deb ...
+#7 76.65 Unpacking libvncserver1:arm64 (0.9.13+dfsg-3ubuntu0.2) ...
+#7 76.67 Selecting previously unselected package libxt6:arm64.
+#7 76.67 Preparing to unpack .../136-libxt6_1%3a1.2.1-1_arm64.deb ...
+#7 76.67 Unpacking libxt6:arm64 (1:1.2.1-1) ...
+#7 76.70 Selecting previously unselected package libxmu6:arm64.
+#7 76.70 Preparing to unpack .../137-libxmu6_2%3a1.1.3-3_arm64.deb ...
+#7 76.70 Unpacking libxmu6:arm64 (2:1.1.3-3) ...
+#7 76.72 Selecting previously unselected package libxpm4:arm64.
+#7 76.72 Preparing to unpack .../138-libxpm4_1%3a3.5.12-1ubuntu0.22.04.4_arm64.deb ...
+#7 76.72 Unpacking libxpm4:arm64 (1:3.5.12-1ubuntu0.22.04.4) ...
+#7 76.74 Selecting previously unselected package libxaw7:arm64.
+#7 76.74 Preparing to unpack .../139-libxaw7_2%3a1.0.14-1_arm64.deb ...
+#7 76.74 Unpacking libxaw7:arm64 (2:1.0.14-1) ...
+#7 76.77 Selecting previously unselected package libxcb-shape0:arm64.
+#7 76.77 Preparing to unpack .../140-libxcb-shape0_1.14-3ubuntu3_arm64.deb ...
+#7 76.77 Unpacking libxcb-shape0:arm64 (1.14-3ubuntu3) ...
+#7 76.79 Selecting previously unselected package libxfont2:arm64.
+#7 76.79 Preparing to unpack .../141-libxfont2_1%3a2.0.5-1ubuntu0.2_arm64.deb ...
+#7 76.79 Unpacking libxfont2:arm64 (1:2.0.5-1ubuntu0.2) ...
+#7 76.81 Selecting previously unselected package libxkbfile1:arm64.
+#7 76.81 Preparing to unpack .../142-libxkbfile1_1%3a1.1.0-1build3_arm64.deb ...
+#7 76.81 Unpacking libxkbfile1:arm64 (1:1.1.0-1build3) ...
+#7 76.83 Selecting previously unselected package libxv1:arm64.
+#7 76.83 Preparing to unpack .../143-libxv1_2%3a1.0.11-1build2_arm64.deb ...
+#7 76.84 Unpacking libxv1:arm64 (2:1.0.11-1build2) ...
+#7 76.85 Selecting previously unselected package libxxf86dga1:arm64.
+#7 76.85 Preparing to unpack .../144-libxxf86dga1_2%3a1.1.5-0ubuntu3_arm64.deb ...
+#7 76.86 Unpacking libxxf86dga1:arm64 (2:1.1.5-0ubuntu3) ...
+#7 76.87 Selecting previously unselected package tcl8.6.
+#7 76.87 Preparing to unpack .../145-tcl8.6_8.6.12+dfsg-1build1_arm64.deb ...
+#7 76.88 Unpacking tcl8.6 (8.6.12+dfsg-1build1) ...
+#7 76.89 Selecting previously unselected package tcl.
+#7 76.89 Preparing to unpack .../146-tcl_8.6.11+1build2_arm64.deb ...
+#7 76.90 Unpacking tcl (8.6.11+1build2) ...
+#7 76.92 Selecting previously unselected package tk8.6.
+#7 76.92 Preparing to unpack .../147-tk8.6_8.6.12-1build1_arm64.deb ...
+#7 76.92 Unpacking tk8.6 (8.6.12-1build1) ...
+#7 76.93 Selecting previously unselected package tk.
+#7 76.94 Preparing to unpack .../148-tk_8.6.11+1build2_arm64.deb ...
+#7 76.94 Unpacking tk (8.6.11+1build2) ...
+#7 76.96 Selecting previously unselected package libglvnd0:arm64.
+#7 76.96 Preparing to unpack .../149-libglvnd0_1.4.0-1_arm64.deb ...
+#7 76.96 Unpacking libglvnd0:arm64 (1.4.0-1) ...
+#7 76.98 Selecting previously unselected package libglx0:arm64.
+#7 76.99 Preparing to unpack .../150-libglx0_1.4.0-1_arm64.deb ...
+#7 76.99 Unpacking libglx0:arm64 (1.4.0-1) ...
+#7 77.00 Selecting previously unselected package libgl1:arm64.
+#7 77.01 Preparing to unpack .../151-libgl1_1.4.0-1_arm64.deb ...
+#7 77.01 Unpacking libgl1:arm64 (1.4.0-1) ...
+#7 77.03 Selecting previously unselected package x11-utils.
+#7 77.03 Preparing to unpack .../152-x11-utils_7.7+5build2_arm64.deb ...
+#7 77.03 Unpacking x11-utils (7.7+5build2) ...
+#7 77.05 Selecting previously unselected package x11-xkb-utils.
+#7 77.06 Preparing to unpack .../153-x11-xkb-utils_7.7+5build4_arm64.deb ...
+#7 77.06 Unpacking x11-xkb-utils (7.7+5build4) ...
+#7 77.08 Selecting previously unselected package x11vnc.
+#7 77.08 Preparing to unpack .../154-x11vnc_0.9.16-8_arm64.deb ...
+#7 77.08 Unpacking x11vnc (0.9.16-8) ...
+#7 77.11 Selecting previously unselected package xbitmaps.
+#7 77.11 Preparing to unpack .../155-xbitmaps_1.1.1-2.1ubuntu1_all.deb ...
+#7 77.11 Unpacking xbitmaps (1.1.1-2.1ubuntu1) ...
+#7 77.14 Selecting previously unselected package xfonts-encodings.
+#7 77.14 Preparing to unpack .../156-xfonts-encodings_1%3a1.0.5-0ubuntu2_all.deb ...
+#7 77.14 Unpacking xfonts-encodings (1:1.0.5-0ubuntu2) ...
+#7 77.17 Selecting previously unselected package xfonts-utils.
+#7 77.17 Preparing to unpack .../157-xfonts-utils_1%3a7.7+6build2_arm64.deb ...
+#7 77.17 Unpacking xfonts-utils (1:7.7+6build2) ...
+#7 77.20 Selecting previously unselected package xfonts-base.
+#7 77.20 Preparing to unpack .../158-xfonts-base_1%3a1.0.5_all.deb ...
+#7 77.20 Unpacking xfonts-base (1:1.0.5) ...
+#7 77.56 Selecting previously unselected package xserver-common.
+#7 77.57 Preparing to unpack .../159-xserver-common_2%3a21.1.4-2ubuntu1.7~22.04.16_all.deb ...
+#7 77.57 Unpacking xserver-common (2:21.1.4-2ubuntu1.7~22.04.16) ...
+#7 77.59 Selecting previously unselected package xterm.
+#7 77.59 Preparing to unpack .../160-xterm_372-1ubuntu1_arm64.deb ...
+#7 77.59 Unpacking xterm (372-1ubuntu1) ...
+#7 77.62 Selecting previously unselected package xvfb.
+#7 77.63 Preparing to unpack .../161-xvfb_2%3a21.1.4-2ubuntu1.7~22.04.16_arm64.deb ...
+#7 77.63 Unpacking xvfb (2:21.1.4-2ubuntu1.7~22.04.16) ...
+#7 77.67 Setting up media-types (7.0.0) ...
+#7 77.68 Setting up libgraphite2-3:arm64 (1.3.14-1ubuntu0.1) ...
+#7 77.68 Setting up liblcms2-2:arm64 (2.12~rc1-2ubuntu0.1) ...
+#7 77.69 Setting up libpixman-1-0:arm64 (0.40.0-1ubuntu0.22.04.1) ...
+#7 77.69 Setting up systemd-sysv (249.11-0ubuntu3.23) ...
+#7 77.70 Setting up libxau6:arm64 (1:1.0.9-1build5) ...
+#7 77.70 Setting up hicolor-icon-theme (0.17-2) ...
+#7 77.72 Setting up libdatrie1:arm64 (0.2.13-2) ...
+#7 77.73 Setting up xdg-user-dirs (0.17-2ubuntu4) ...
+#7 77.74 Setting up libglib2.0-0:arm64 (2.72.4-0ubuntu2.11) ...
+#7 77.75 Setting up libglvnd0:arm64 (1.4.0-1) ...
+#7 77.75 Setting up fonts-noto-cjk (1:20220127+repack1-1) ...
+#7 77.76 Setting up libsqlite3-0:arm64 (3.37.2-2ubuntu0.8) ...
+#7 77.77 Setting up libgdk-pixbuf2.0-common (2.42.8+dfsg-1ubuntu0.5) ...
+#7 77.77 Setting up x11-common (1:7.7+23ubuntu2) ...
+#7 77.87 debconf: unable to initialize frontend: Dialog
+#7 77.87 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#7 77.87 debconf: falling back to frontend: Readline
+#7 77.90 invoke-rc.d: could not determine current runlevel
+#7 77.90 invoke-rc.d: policy-rc.d denied execution of start.
+#7 77.91 Setting up libsensors-config (1:3.6.0-7ubuntu1) ...
+#7 77.91 Setting up libdeflate0:arm64 (1.10-2) ...
+#7 77.92 Setting up libnss-systemd:arm64 (249.11-0ubuntu3.23) ...
+#7 77.92 First installation detected...
+#7 77.92 Checking NSS setup...
+#7 77.93 Setting up xkb-data (2.33-1) ...
+#7 77.93 Setting up liblzo2-2:arm64 (2.10-2build3) ...
+#7 77.93 Setting up libunwind8:arm64 (1.3.2-2build2.1) ...
+#7 77.94 Setting up libjbig0:arm64 (2.1-3.1ubuntu0.22.04.1) ...
+#7 77.94 Setting up libcolord2:arm64 (1.4.6-1) ...
+#7 77.95 Setting up libdconf1:arm64 (0.40.0-3ubuntu0.1) ...
+#7 77.95 Setting up libasound2-data (1.2.6.1-1ubuntu1.2) ...
+#7 77.95 Setting up libfontenc1:arm64 (1:1.1.4-1build3) ...
+#7 77.96 Setting up libglib2.0-data (2.72.4-0ubuntu2.11) ...
+#7 77.96 Setting up libx11-data (2:1.7.5-1ubuntu0.4) ...
+#7 77.97 Setting up libepoxy0:arm64 (1.5.10-1) ...
+#7 77.97 Setting up libavahi-common-data:arm64 (0.8-5ubuntu5.5) ...
+#7 77.97 Setting up libdbus-1-3:arm64 (1.12.20-2ubuntu4.1) ...
+#7 77.98 Setting up dbus (1.12.20-2ubuntu4.1) ...
+#7 78.06 Setting up xfonts-encodings (1:1.0.5-0ubuntu2) ...
+#7 78.07 Setting up libfribidi0:arm64 (1.0.8-2ubuntu3.1) ...
+#7 78.07 Setting up systemd-timesyncd (249.11-0ubuntu3.23) ...
+#7 78.25 Created symlink /etc/systemd/system/dbus-org.freedesktop.timesync1.service → /lib/systemd/system/systemd-timesyncd.service.
+#7 78.25 Created symlink /etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service → /lib/systemd/system/systemd-timesyncd.service.
+#7 78.25 Setting up libtcl8.6:arm64 (8.6.12+dfsg-1build1) ...
+#7 78.26 Setting up libsensors5:arm64 (1:3.6.0-7ubuntu1) ...
+#7 78.26 Setting up libjpeg-turbo8:arm64 (2.1.2-0ubuntu1) ...
+#7 78.27 Setting up libglapi-mesa:arm64 (23.2.1-1ubuntu3.1~22.04.4) ...
+#7 78.27 Setting up libwebp7:arm64 (1.2.2-2ubuntu0.22.04.2) ...
+#7 78.28 Setting up libutempter0:arm64 (1.2.1-2build2) ...
+#7 78.28 Setting up libatk1.0-data (2.36.0-3build1) ...
+#7 78.29 Setting up libmd0:arm64 (1.0.4-1build1) ...
+#7 78.30 Setting up alsa-topology-conf (1.2.5.1-2) ...
+#7 78.30 Setting up dmsetup (2:1.02.175-2.1ubuntu5) ...
+#7 78.30 Setting up libxshmfence1:arm64 (1.3-1build4) ...
+#7 78.31 Setting up libasound2:arm64 (1.2.6.1-1ubuntu1.2) ...
+#7 78.31 Setting up libmpdec3:arm64 (2.5.1-2build2) ...
+#7 78.32 Setting up libpam-systemd:arm64 (249.11-0ubuntu3.23) ...
+#7 78.41 debconf: unable to initialize frontend: Dialog
+#7 78.41 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#7 78.41 debconf: falling back to frontend: Readline
+#7 78.49 Setting up libharfbuzz0b:arm64 (2.7.4-1ubuntu3.2) ...
+#7 78.50 Setting up libthai-data (0.1.29-1build1) ...
+#7 78.50 Setting up libgirepository-1.0-1:arm64 (1.72.0-1) ...
+#7 78.50 Setting up libatk1.0-0:arm64 (2.36.0-3build1) ...
+#7 78.51 Setting up libwayland-egl1:arm64 (1.20.0-1ubuntu0.1) ...
+#7 78.51 Setting up libbsd0:arm64 (0.11.5-1) ...
+#7 78.52 Setting up libdrm-common (2.4.113-2~ubuntu0.22.04.1) ...
+#7 78.52 Setting up libelf1:arm64 (0.186-1ubuntu0.1) ...
+#7 78.53 Setting up libxfont2:arm64 (1:2.0.5-1ubuntu0.2) ...
+#7 78.53 Setting up readline-common (8.1.2-1) ...
+#7 78.54 Setting up fonts-noto-core (20201225-1build1) ...
+#7 78.54 Setting up xbitmaps (1.1.1-2.1ubuntu1) ...
+#7 78.55 Setting up libicu70:arm64 (70.1-2) ...
+#7 78.55 Setting up libxkbcommon0:arm64 (1.4.0-1) ...
+#7 78.56 Setting up libwayland-client0:arm64 (1.20.0-1ubuntu0.1) ...
+#7 78.56 Setting up libjpeg8:arm64 (8c-2ubuntu10) ...
+#7 78.56 Setting up libice6:arm64 (2:1.0.10-1build2) ...
+#7 78.57 Setting up session-migration (0.3.6) ...
+#7 78.66 Created symlink /etc/systemd/user/graphical-session-pre.target.wants/session-migration.service → /usr/lib/systemd/user/session-migration.service.
+#7 78.67 Setting up libxdmcp6:arm64 (1:1.1.3-0ubuntu5) ...
+#7 78.67 Setting up tcl8.6 (8.6.12+dfsg-1build1) ...
+#7 78.67 Setting up libxcb1:arm64 (1.14-3ubuntu3) ...
+#7 78.68 Setting up libxcb-xfixes0:arm64 (1.14-3ubuntu3) ...
+#7 78.68 Setting up alsa-ucm-conf (1.2.6.3-1ubuntu1.12) ...
+#7 78.69 Setting up libxcb-render0:arm64 (1.14-3ubuntu3) ...
+#7 78.69 Setting up libxcb-glx0:arm64 (1.14-3ubuntu3) ...
+#7 78.70 Setting up libedit2:arm64 (3.1-20210910-1build1) ...
+#7 78.71 Setting up libreadline8:arm64 (8.1.2-1) ...
+#7 78.71 Setting up libxcb-shape0:arm64 (1.14-3ubuntu3) ...
+#7 78.72 Setting up libavahi-common3:arm64 (0.8-5ubuntu5.5) ...
+#7 78.72 Setting up libxcb-shm0:arm64 (1.14-3ubuntu3) ...
+#7 78.73 Setting up xfonts-utils (1:7.7+6build2) ...
+#7 78.73 Setting up libvncserver1:arm64 (0.9.13+dfsg-3ubuntu0.2) ...
+#7 78.74 Setting up libxcb-present0:arm64 (1.14-3ubuntu3) ...
+#7 78.74 Setting up libpython3.10-stdlib:arm64 (3.10.12-1~22.04.18) ...
+#7 78.74 Setting up libvncclient1:arm64 (0.9.13+dfsg-3ubuntu0.2) ...
+#7 78.75 Setting up libthai0:arm64 (0.1.29-1build1) ...
+#7 78.75 Setting up dbus-user-session (1.12.20-2ubuntu4.1) ...
+#7 78.76 Setting up xfonts-base (1:1.0.5) ...
+#7 78.82 Setting up libxcb-sync1:arm64 (1.14-3ubuntu3) ...
+#7 78.82 Setting up gir1.2-glib-2.0:arm64 (1.72.0-1) ...
+#7 78.83 Setting up libxcb-dri2-0:arm64 (1.14-3ubuntu3) ...
+#7 78.83 Setting up libdrm2:arm64 (2.4.113-2~ubuntu0.22.04.1) ...
+#7 78.83 Setting up libwayland-cursor0:arm64 (1.20.0-1ubuntu0.1) ...
+#7 78.84 Setting up libxcb-randr0:arm64 (1.14-3ubuntu3) ...
+#7 78.84 Setting up tcl (8.6.11+1build2) ...
+#7 78.85 Setting up libx11-6:arm64 (2:1.7.5-1ubuntu0.4) ...
+#7 78.85 Setting up libtiff5:arm64 (4.3.0-6ubuntu0.13) ...
+#7 78.85 Setting up libxkbfile1:arm64 (1:1.1.0-1build3) ...
+#7 78.86 Setting up libxcomposite1:arm64 (1:0.4.5-1build2) ...
+#7 78.86 Setting up libsm6:arm64 (2:1.2.3-1build2) ...
+#7 78.87 Setting up libxml2:arm64 (2.9.13+dfsg-1ubuntu0.14) ...
+#7 78.87 Setting up libavahi-client3:arm64 (0.8-5ubuntu5.5) ...
+#7 78.88 Setting up libxmuu1:arm64 (2:1.1.3-3) ...
+#7 78.88 Setting up libpython3-stdlib:arm64 (3.10.6-1~22.04.1) ...
+#7 78.88 Setting up libdrm-amdgpu1:arm64 (2.4.113-2~ubuntu0.22.04.1) ...
+#7 78.89 Setting up libxcb-dri3-0:arm64 (1.14-3ubuntu3) ...
+#7 78.89 Setting up libx11-xcb1:arm64 (2:1.7.5-1ubuntu0.4) ...
+#7 78.90 Setting up libdrm-nouveau2:arm64 (2.4.113-2~ubuntu0.22.04.1) ...
+#7 78.90 Setting up libxdamage1:arm64 (1:1.1.5-2build2) ...
+#7 78.91 Setting up python3.10 (3.10.12-1~22.04.18) ...
+#7 79.53 Setting up libxpm4:arm64 (1:3.5.12-1ubuntu0.22.04.4) ...
+#7 79.53 Setting up libxrender1:arm64 (1:0.9.10-1build4) ...
+#7 79.54 Setting up libdrm-radeon1:arm64 (2.4.113-2~ubuntu0.22.04.1) ...
+#7 79.54 Setting up libpango-1.0-0:arm64 (1.50.6+ds-2ubuntu1) ...
+#7 79.55 Setting up libxext6:arm64 (2:1.3.4-1build1) ...
+#7 79.56 Setting up dconf-service (0.40.0-3ubuntu0.1) ...
+#7 79.56 Setting up python3 (3.10.6-1~22.04.1) ...
+#7 79.57 running python rtupdate hooks for python3.10...
+#7 79.57 running python post-rtupdate hooks for python3.10...
+#7 79.65 Setting up libcairo2:arm64 (1.16.0-5ubuntu2.1) ...
+#7 79.66 Setting up libxxf86vm1:arm64 (1:1.1.4-1build3) ...
+#7 79.66 Setting up libxfixes3:arm64 (1:6.0.0-1) ...
+#7 79.67 Setting up python3-gi (3.42.1-0ubuntu1) ...
+#7 79.83 Setting up shared-mime-info (2.1-2) ...
+#7 80.89 Setting up libxinerama1:arm64 (2:1.1.4-3) ...
+#7 80.90 Setting up libxv1:arm64 (2:1.0.11-1build2) ...
+#7 80.90 Setting up libxrandr2:arm64 (2:1.5.2-1build1) ...
+#7 80.91 Setting up libxt6:arm64 (1:1.2.1-1) ...
+#7 80.92 Setting up libcups2:arm64 (2.4.1op1-1ubuntu4.21) ...
+#7 80.92 Setting up xauth (1:1.1-1build2) ...
+#7 80.93 Setting up libllvm15:arm64 (1:15.0.7-0ubuntu0.22.04.3) ...
+#7 80.93 Setting up libgdk-pixbuf-2.0-0:arm64 (2.42.8+dfsg-1ubuntu0.5) ...
+#7 80.96 Setting up libcairo-gobject2:arm64 (1.16.0-5ubuntu2.1) ...
+#7 80.97 Setting up libxss1:arm64 (1:1.2.3-1build2) ...
+#7 80.97 Setting up libpangoft2-1.0-0:arm64 (1.50.6+ds-2ubuntu1) ...
+#7 80.98 Setting up libpangocairo-1.0-0:arm64 (1.50.6+ds-2ubuntu1) ...
+#7 80.98 Setting up libgl1-amber-dri:arm64 (21.3.9-0ubuntu1~22.04.2) ...
+#7 80.98 Setting up gtk-update-icon-cache (3.24.33-1ubuntu2.2) ...
+#7 80.99 Setting up python3-dbus (1.2.18-3build1) ...
+#7 81.11 Setting up libxft2:arm64 (2.3.4-1) ...
+#7 81.11 Setting up libxmu6:arm64 (2:1.1.3-3) ...
+#7 81.12 Setting up libxi6:arm64 (2:1.8-1build1) ...
+#7 81.12 Setting up dconf-gsettings-backend:arm64 (0.40.0-3ubuntu0.1) ...
+#7 81.13 Setting up libxtst6:arm64 (2:1.2.3-1ubuntu0.22.04.1) ...
+#7 81.13 Setting up libtk8.6:arm64 (8.6.12-1build1) ...
+#7 81.13 Setting up libxcursor1:arm64 (1:1.2.0-2build4) ...
+#7 81.14 Setting up libgl1-mesa-dri:arm64 (23.2.1-1ubuntu3.1~22.04.4) ...
+#7 81.15 Setting up libxxf86dga1:arm64 (2:1.1.5-0ubuntu3) ...
+#7 81.15 Setting up libxaw7:arm64 (2:1.0.14-1) ...
+#7 81.15 Setting up libatspi2.0-0:arm64 (2.44.0-3) ...
+#7 81.16 Setting up librsvg2-2:arm64 (2.52.5+dfsg-3ubuntu0.2) ...
+#7 81.16 Setting up libatk-bridge2.0-0:arm64 (2.38.0-3) ...
+#7 81.17 Setting up librsvg2-common:arm64 (2.52.5+dfsg-3ubuntu0.2) ...
+#7 81.18 Setting up libgdk-pixbuf2.0-bin (2.42.8+dfsg-1ubuntu0.5) ...
+#7 81.18 Setting up xterm (372-1ubuntu1) ...
+#7 81.20 update-alternatives: using /usr/bin/xterm to provide /usr/bin/x-terminal-emulator (x-terminal-emulator) in auto mode
+#7 81.20 update-alternatives: warning: skip creation of /usr/share/man/man1/x-terminal-emulator.1.gz because associated file /usr/share/man/man1/xterm.1.gz (of link group x-terminal-emulator) doesn't exist
+#7 81.20 update-alternatives: using /usr/bin/lxterm to provide /usr/bin/x-terminal-emulator (x-terminal-emulator) in auto mode
+#7 81.20 update-alternatives: warning: skip creation of /usr/share/man/man1/x-terminal-emulator.1.gz because associated file /usr/share/man/man1/lxterm.1.gz (of link group x-terminal-emulator) doesn't exist
+#7 81.21 Setting up libgtk-3-common (3.24.33-1ubuntu2.2) ...
+#7 81.21 Setting up networkd-dispatcher (2.1-2ubuntu0.22.04.2) ...
+#7 81.31 Created symlink /etc/systemd/system/multi-user.target.wants/networkd-dispatcher.service → /lib/systemd/system/networkd-dispatcher.service.
+#7 81.31 Setting up gsettings-desktop-schemas (42.0-1ubuntu1) ...
+#7 81.32 Setting up tk8.6 (8.6.12-1build1) ...
+#7 81.33 Setting up libglx-mesa0:arm64 (23.2.1-1ubuntu3.1~22.04.4) ...
+#7 81.34 Setting up libglx0:arm64 (1.4.0-1) ...
+#7 81.34 Setting up x11-xkb-utils (7.7+5build4) ...
+#7 81.35 Setting up libgl1:arm64 (1.4.0-1) ...
+#7 81.35 Setting up at-spi2-core (2.44.0-3) ...
+#7 81.36 Setting up x11-utils (7.7+5build2) ...
+#7 81.37 Setting up xserver-common (2:21.1.4-2ubuntu1.7~22.04.16) ...
+#7 81.38 Setting up tk (8.6.11+1build2) ...
+#7 81.38 Setting up xvfb (2:21.1.4-2ubuntu1.7~22.04.16) ...
+#7 81.39 Setting up x11vnc (0.9.16-8) ...
+#7 81.39 Setting up adwaita-icon-theme (41.0-1ubuntu1) ...
+#7 81.41 update-alternatives: using /usr/share/icons/Adwaita/cursor.theme to provide /usr/share/icons/default/index.theme (x-cursor-theme) in auto mode
+#7 81.42 Setting up libgtk-3-0:arm64 (3.24.33-1ubuntu2.2) ...
+#7 81.44 Setting up libgtk-3-bin (3.24.33-1ubuntu2.2) ...
+#7 81.45 Setting up humanity-icon-theme (0.6.16) ...
+#7 81.58 Setting up ubuntu-mono (20.10-0ubuntu2) ...
+#7 81.62 Processing triggers for fontconfig (2.13.1-4.2ubuntu5) ...
+#7 82.05 Processing triggers for libc-bin (2.35-0ubuntu3.7) ...
+#7 82.18 Processing triggers for libgdk-pixbuf-2.0-0:arm64 (2.42.8+dfsg-1ubuntu0.5) ...
+#7 DONE 85.0s
+
+#8 [4/6] COPY pom.xml .
+#8 DONE 0.2s
+
+#9 [5/6] COPY src ./src
+#9 DONE 0.0s
+
+#10 [6/6] RUN mvn clean package -DskipTests
+#10 1.516 [INFO] Scanning for projects...
+#10 1.562 [INFO] 
+#10 1.562 [INFO] ------------------< org.example:TemperatureConverter >------------------
+#10 1.563 [INFO] Building TemperatureConverter 1.0-SNAPSHOT
+#10 1.563 [INFO]   from pom.xml
+#10 1.563 [INFO] --------------------------------[ jar ]---------------------------------
+#10 1.799 Downloading from central: https://repo.maven.apache.org/maven2/org/jacoco/jacoco-maven-plugin/0.8.15/jacoco-maven-plugin-0.8.15.pom
+#10 2.222 Progress (1): 849 BProgress (1): 941 BProgress (1): 3.2 kBProgress (1): 4.9 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/jacoco/jacoco-maven-plugin/0.8.15/jacoco-maven-plugin-0.8.15.pom (4.9 kB at 11 kB/s)
+#10 2.244 Downloading from central: https://repo.maven.apache.org/maven2/org/jacoco/org.jacoco.build/0.8.15/org.jacoco.build-0.8.15.pom
+#10 2.276 Progress (1): 746 BProgress (1): 797 BProgress (1): 2.7 kBProgress (1): 4.6 kBProgress (1): 5.5 kBProgress (1): 10 kB Progress (1): 14 kBProgress (1): 17 kBProgress (1): 19 kBProgress (1): 23 kBProgress (1): 25 kBProgress (1): 27 kBProgress (1): 30 kBProgress (1): 31 kBProgress (1): 37 kBProgress (1): 43 kBProgress (1): 46 kBProgress (1): 50 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/jacoco/org.jacoco.build/0.8.15/org.jacoco.build-0.8.15.pom (50 kB at 1.2 MB/s)
+#10 2.299 Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-bom/9.10.1/asm-bom-9.10.1.pom
+#10 2.338 Progress (1): 1.1 kBProgress (1): 1.3 kBProgress (1): 3.3 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-bom/9.10.1/asm-bom-9.10.1.pom (3.3 kB at 80 kB/s)
+#10 2.343 Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/ow2/1.5.1/ow2-1.5.1.pom
+#10 2.375 Progress (1): 709 BProgress (1): 807 BProgress (1): 2.1 kBProgress (1): 3.6 kBProgress (1): 5.1 kBProgress (1): 7.4 kBProgress (1): 11 kB Progress (1): 11 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/ow2/1.5.1/ow2-1.5.1.pom (11 kB at 314 kB/s)
+#10 2.387 Downloading from central: https://repo.maven.apache.org/maven2/org/jacoco/jacoco-maven-plugin/0.8.15/jacoco-maven-plugin-0.8.15.jar
+#10 2.418 Progress (1): 0.5/58 kBProgress (1): 1.9/58 kBProgress (1): 3.2/58 kBProgress (1): 4.5/58 kBProgress (1): 5.9/58 kBProgress (1): 7.3/58 kBProgress (1): 8.6/58 kBProgress (1): 10/58 kB Progress (1): 11/58 kBProgress (1): 13/58 kBProgress (1): 14/58 kBProgress (1): 15/58 kBProgress (1): 17/58 kBProgress (1): 18/58 kBProgress (1): 20/58 kBProgress (1): 21/58 kBProgress (1): 22/58 kBProgress (1): 24/58 kBProgress (1): 25/58 kBProgress (1): 26/58 kBProgress (1): 28/58 kBProgress (1): 29/58 kBProgress (1): 30/58 kBProgress (1): 35/58 kBProgress (1): 39/58 kBProgress (1): 43/58 kBProgress (1): 47/58 kBProgress (1): 52/58 kBProgress (1): 56/58 kBProgress (1): 58 kB                      Downloaded from central: https://repo.maven.apache.org/maven2/org/jacoco/jacoco-maven-plugin/0.8.15/jacoco-maven-plugin-0.8.15.jar (58 kB at 1.2 MB/s)
+#10 2.448 Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/3.2.0/maven-clean-plugin-3.2.0.pom
+#10 2.480 Progress (1): 780 BProgress (1): 2.2 kBProgress (1): 4.7 kBProgress (1): 5.3 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/3.2.0/maven-clean-plugin-3.2.0.pom (5.3 kB at 152 kB/s)
+#10 2.486 Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/35/maven-plugins-35.pom
+#10 2.518 Progress (1): 752 BProgress (1): 2.2 kBProgress (1): 4.5 kBProgress (1): 7.3 kBProgress (1): 9.9 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/35/maven-plugins-35.pom (9.9 kB at 291 kB/s)
+#10 2.524 Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/35/maven-parent-35.pom
+#10 2.564 Progress (1): 726 BProgress (1): 1.9 kBProgress (1): 5.3 kBProgress (1): 9.5 kBProgress (1): 14 kB Progress (1): 19 kBProgress (1): 22 kBProgress (1): 26 kBProgress (1): 27 kBProgress (1): 30 kBProgress (1): 33 kBProgress (1): 36 kBProgress (1): 39 kBProgress (1): 43 kBProgress (1): 45 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/35/maven-parent-35.pom (45 kB at 984 kB/s)
+#10 2.575 Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/25/apache-25.pom
+#10 2.615 Progress (1): 743 BProgress (1): 2.1 kBProgress (1): 3.9 kBProgress (1): 7.3 kBProgress (1): 12 kB Progress (1): 16 kBProgress (1): 18 kBProgress (1): 20 kBProgress (1): 21 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/25/apache-25.pom (21 kB at 489 kB/s)
+#10 2.625 Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/3.2.0/maven-clean-plugin-3.2.0.jar
+#10 2.658 Progress (1): 3.4/36 kBProgress (1): 7.6/36 kBProgress (1): 8.2/36 kBProgress (1): 12/36 kB Progress (1): 17/36 kBProgress (1): 21/36 kBProgress (1): 25/36 kBProgress (1): 29/36 kBProgress (1): 33/36 kBProgress (1): 36 kB                      Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/3.2.0/maven-clean-plugin-3.2.0.jar (36 kB at 939 kB/s)
+#10 2.668 Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-resources-plugin/3.3.1/maven-resources-plugin-3.3.1.pom
+#10 2.707 Progress (1): 767 BProgress (1): 2.2 kBProgress (1): 4.9 kBProgress (1): 7.5 kBProgress (1): 8.2 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-resources-plugin/3.3.1/maven-resources-plugin-3.3.1.pom (8.2 kB at 194 kB/s)
+#10 2.713 Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/39/maven-plugins-39.pom
+#10 2.748 Progress (1): 773 BProgress (1): 2.3 kBProgress (1): 4.9 kBProgress (1): 7.4 kBProgress (1): 8.1 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/39/maven-plugins-39.pom (8.1 kB at 213 kB/s)
+#10 2.753 Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/39/maven-parent-39.pom
+#10 2.783 Progress (1): 724 BProgress (1): 1.9 kBProgress (1): 5.5 kBProgress (1): 9.8 kBProgress (1): 14 kB Progress (1): 19 kBProgress (1): 22 kBProgress (1): 26 kBProgress (1): 27 kBProgress (1): 30 kBProgress (1): 33 kBProgress (1): 36 kBProgress (1): 39 kBProgress (1): 42 kBProgress (1): 46 kBProgress (1): 48 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/39/maven-parent-39.pom (48 kB at 1.4 MB/s)
+#10 2.792 Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/29/apache-29.pom
+#10 2.824 Progress (1): 741 BProgress (1): 2.1 kBProgress (1): 3.9 kBProgress (1): 6.9 kBProgress (1): 12 kB Progress (1): 16 kBProgress (1): 18 kBProgress (1): 20 kBProgress (1): 21 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/29/apache-29.pom (21 kB at 592 kB/s)
+#10 2.832 Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-resources-plugin/3.3.1/maven-resources-plugin-3.3.1.jar
+#10 2.867 Progress (1): 3.4/31 kBProgress (1): 7.6/31 kBProgress (1): 12/31 kB Progress (1): 28/31 kBProgress (1): 31 kB                      Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-resources-plugin/3.3.1/maven-resources-plugin-3.3.1.jar (31 kB at 755 kB/s)
+#10 2.877 Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-compiler-plugin/3.13.0/maven-compiler-plugin-3.13.0.pom
+#10 2.910 Progress (1): 762 BProgress (1): 2.2 kBProgress (1): 5.0 kBProgress (1): 8.5 kBProgress (1): 10 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-compiler-plugin/3.13.0/maven-compiler-plugin-3.13.0.pom (10 kB at 298 kB/s)
+#10 2.914 Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/41/maven-plugins-41.pom
+#10 2.945 Progress (1): 773 BProgress (1): 2.4 kBProgress (1): 4.9 kBProgress (1): 7.4 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/41/maven-plugins-41.pom (7.4 kB at 230 kB/s)
+#10 2.949 Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/41/maven-parent-41.pom
+#10 2.983 Progress (1): 724 BProgress (1): 1.9 kBProgress (1): 5.5 kBProgress (1): 9.9 kBProgress (1): 14 kB Progress (1): 19 kBProgress (1): 23 kBProgress (1): 27 kBProgress (1): 28 kBProgress (1): 31 kBProgress (1): 34 kBProgress (1): 37 kBProgress (1): 40 kBProgress (1): 43 kBProgress (1): 44 kBProgress (1): 50 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/41/maven-parent-41.pom (50 kB at 1.3 MB/s)
+#10 2.991 Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/31/apache-31.pom
+#10 3.023 Progress (1): 739 BProgress (1): 2.1 kBProgress (1): 3.9 kBProgress (1): 6.2 kBProgress (1): 11 kB Progress (1): 16 kBProgress (1): 20 kBProgress (1): 22 kBProgress (1): 24 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/31/apache-31.pom (24 kB at 672 kB/s)
+#10 3.032 Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-compiler-plugin/3.13.0/maven-compiler-plugin-3.13.0.jar
+#10 3.072 Progress (1): 7.4/83 kBProgress (1): 8.2/83 kBProgress (1): 25/83 kB Progress (1): 41/83 kBProgress (1): 57/83 kBProgress (1): 74/83 kBProgress (1): 83 kB                      Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-compiler-plugin/3.13.0/maven-compiler-plugin-3.13.0.jar (83 kB at 1.6 MB/s)
+#10 3.093 Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-surefire-plugin/3.5.2/maven-surefire-plugin-3.5.2.pom
+#10 3.125 Progress (1): 833 BProgress (1): 3.0 kBProgress (1): 5.7 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-surefire-plugin/3.5.2/maven-surefire-plugin-3.5.2.pom (5.7 kB at 167 kB/s)
+#10 3.130 Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire/3.5.2/surefire-3.5.2.pom
+#10 3.323 Progress (1): 787 BProgress (1): 2.4 kBProgress (1): 4.1 kBProgress (1): 7.5 kBProgress (1): 11 kB Progress (1): 13 kBProgress (1): 16 kBProgress (1): 18 kBProgress (1): 20 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire/3.5.2/surefire-3.5.2.pom (20 kB at 102 kB/s)
+#10 3.335 Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/43/maven-parent-43.pom
+#10 3.369 Progress (1): 720 BProgress (1): 1.9 kBProgress (1): 5.5 kBProgress (1): 9.9 kBProgress (1): 14 kB Progress (1): 19 kBProgress (1): 23 kBProgress (1): 26 kBProgress (1): 28 kBProgress (1): 31 kBProgress (1): 34 kBProgress (1): 38 kBProgress (1): 41 kBProgress (1): 43 kBProgress (1): 45 kBProgress (1): 50 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/43/maven-parent-43.pom (50 kB at 1.3 MB/s)
+#10 3.381 Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/33/apache-33.pom
+#10 3.412 Progress (1): 741 BProgress (1): 2.1 kBProgress (1): 4.0 kBProgress (1): 6.0 kBProgress (1): 10 kB Progress (1): 16 kBProgress (1): 19 kBProgress (1): 22 kBProgress (1): 24 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/33/apache-33.pom (24 kB at 733 kB/s)
+#10 3.420 Downloading from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.10.3/junit-bom-5.10.3.pom
+#10 3.453 Progress (1): 908 BProgress (1): 4.1 kBProgress (1): 5.6 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.10.3/junit-bom-5.10.3.pom (5.6 kB at 161 kB/s)
+#10 3.459 Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-surefire-plugin/3.5.2/maven-surefire-plugin-3.5.2.jar
+#10 3.492 Progress (1): 3.2/46 kBProgress (1): 11/46 kB Progress (1): 28/46 kBProgress (1): 44/46 kBProgress (1): 46 kB                      Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-surefire-plugin/3.5.2/maven-surefire-plugin-3.5.2.jar (46 kB at 1.1 MB/s)
+#10 3.508 Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/3.4.2/maven-jar-plugin-3.4.2.pom
+#10 3.603 Progress (1): 820 BProgress (1): 2.3 kBProgress (1): 4.5 kBProgress (1): 7.2 kBProgress (1): 7.7 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/3.4.2/maven-jar-plugin-3.4.2.pom (7.7 kB at 79 kB/s)
+#10 3.609 Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/42/maven-plugins-42.pom
+#10 3.735 Progress (1): 773 BProgress (1): 2.4 kBProgress (1): 4.9 kBProgress (1): 7.7 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/42/maven-plugins-42.pom (7.7 kB at 60 kB/s)
+#10 3.740 Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/42/maven-parent-42.pom
+#10 3.778 Progress (1): 724 BProgress (1): 1.9 kBProgress (1): 5.5 kBProgress (1): 9.9 kBProgress (1): 14 kB Progress (1): 19 kBProgress (1): 23 kBProgress (1): 26 kBProgress (1): 28 kBProgress (1): 31 kBProgress (1): 34 kBProgress (1): 37 kBProgress (1): 40 kBProgress (1): 43 kBProgress (1): 44 kBProgress (1): 49 kBProgress (1): 50 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/42/maven-parent-42.pom (50 kB at 1.2 MB/s)
+#10 3.787 Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/32/apache-32.pom
+#10 3.895 Progress (1): 733 BProgress (1): 2.0 kBProgress (1): 4.0 kBProgress (1): 5.9 kBProgress (1): 10 kB Progress (1): 16 kBProgress (1): 19 kBProgress (1): 22 kBProgress (1): 24 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/32/apache-32.pom (24 kB at 220 kB/s)
+#10 3.902 Downloading from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.10.2/junit-bom-5.10.2.pom
+#10 3.937 Progress (1): 908 BProgress (1): 4.1 kBProgress (1): 5.6 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.10.2/junit-bom-5.10.2.pom (5.6 kB at 153 kB/s)
+#10 3.944 Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/3.4.2/maven-jar-plugin-3.4.2.jar
+#10 4.006 Progress (1): 3.2/34 kBProgress (1): 11/34 kB Progress (1): 28/34 kBProgress (1): 34 kB                      Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/3.4.2/maven-jar-plugin-3.4.2.jar (34 kB at 516 kB/s)
+#10 4.023 Downloading from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter/5.14.0/junit-jupiter-5.14.0.pom
+#10 4.079 Progress (1): 944 BProgress (1): 3.2 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter/5.14.0/junit-jupiter-5.14.0.pom (3.2 kB at 56 kB/s)
+#10 4.083 Downloading from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.14.0/junit-bom-5.14.0.pom
+#10 4.115 Progress (1): 908 BProgress (1): 4.1 kBProgress (1): 5.7 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.14.0/junit-bom-5.14.0.pom (5.7 kB at 172 kB/s)
+#10 4.122 Downloading from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-api/5.14.0/junit-jupiter-api-5.14.0.pom
+#10 4.155 Progress (1): 952 BProgress (1): 3.2 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-api/5.14.0/junit-jupiter-api-5.14.0.pom (3.2 kB at 94 kB/s)
+#10 4.159 Downloading from central: https://repo.maven.apache.org/maven2/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.pom
+#10 4.192 Progress (1): 996 BProgress (1): 2.0 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.pom (2.0 kB at 60 kB/s)
+#10 4.198 Downloading from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-commons/1.14.0/junit-platform-commons-1.14.0.pom
+#10 4.232 Progress (1): 972 BProgress (1): 2.9 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-commons/1.14.0/junit-platform-commons-1.14.0.pom (2.9 kB at 79 kB/s)
+#10 4.238 Downloading from central: https://repo.maven.apache.org/maven2/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.pom
+#10 4.272 Progress (1): 1.0 kBProgress (1): 1.5 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.pom (1.5 kB at 42 kB/s)
+#10 4.276 Downloading from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-params/5.14.0/junit-jupiter-params-5.14.0.pom
+#10 4.335 Progress (1): 965 BProgress (1): 3.0 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-params/5.14.0/junit-jupiter-params-5.14.0.pom (3.0 kB at 39 kB/s)
+#10 4.382 Downloading from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-engine/5.14.0/junit-jupiter-engine-5.14.0.pom
+#10 4.421 Progress (1): 961 BProgress (1): 3.2 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-engine/5.14.0/junit-jupiter-engine-5.14.0.pom (3.2 kB at 77 kB/s)
+#10 4.431 Downloading from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-engine/1.14.0/junit-platform-engine-1.14.0.pom
+#10 4.462 Progress (1): 953 BProgress (1): 3.2 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-engine/1.14.0/junit-platform-engine-1.14.0.pom (3.2 kB at 95 kB/s)
+#10 4.469 Downloading from central: https://repo.maven.apache.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.5.11/mariadb-java-client-3.5.11.pom
+#10 4.510 Progress (1): 1.1 kBProgress (1): 3.0 kBProgress (1): 5.6 kBProgress (1): 8.9 kBProgress (1): 12 kB Progress (1): 17 kBProgress (1): 29 kBProgress (1): 34 kBProgress (1): 36 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.5.11/mariadb-java-client-3.5.11.pom (36 kB at 820 kB/s)
+#10 4.518 Downloading from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.14.4/junit-bom-5.14.4.pom
+#10 4.549 Progress (1): 908 BProgress (1): 4.1 kBProgress (1): 5.7 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.14.4/junit-bom-5.14.4.pom (5.7 kB at 172 kB/s)
+#10 4.554 Downloading from central: https://repo.maven.apache.org/maven2/software/amazon/awssdk/bom/2.54.19/bom-2.54.19.pom
+#10 4.587 Progress (1): 854 BProgress (1): 4.4 kBProgress (1): 21 kB Progress (1): 39 kBProgress (1): 56 kBProgress (1): 71 kBProgress (1): 85 kBProgress (1): 101 kBProgress (1): 107 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/software/amazon/awssdk/bom/2.54.19/bom-2.54.19.pom (107 kB at 2.9 MB/s)
+#10 4.594 Downloading from central: https://repo.maven.apache.org/maven2/software/amazon/awssdk/aws-sdk-java-pom/2.54.19/aws-sdk-java-pom-2.54.19.pom
+#10 4.630 Progress (1): 771 BProgress (1): 2.1 kBProgress (1): 4.8 kBProgress (1): 6.4 kBProgress (1): 8.6 kBProgress (1): 11 kB Progress (1): 13 kBProgress (1): 17 kBProgress (1): 23 kBProgress (1): 28 kBProgress (1): 32 kBProgress (1): 36 kBProgress (1): 40 kBProgress (1): 45 kBProgress (1): 46 kBProgress (1): 51 kBProgress (1): 61 kBProgress (1): 66 kBProgress (1): 74 kBProgress (1): 83 kBProgress (1): 86 kBProgress (1): 86 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/software/amazon/awssdk/aws-sdk-java-pom/2.54.19/aws-sdk-java-pom-2.54.19.pom (86 kB at 2.1 MB/s)
+#10 4.644 Downloading from central: https://repo.maven.apache.org/maven2/org/openjfx/javafx-controls/21.0.8/javafx-controls-21.0.8.pom
+#10 4.685 Progress (1): 1.0 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/openjfx/javafx-controls/21.0.8/javafx-controls-21.0.8.pom (1.0 kB at 25 kB/s)
+#10 4.690 Downloading from central: https://repo.maven.apache.org/maven2/org/openjfx/javafx/21.0.8/javafx-21.0.8.pom
+#10 4.728 Progress (1): 2.2 kBProgress (1): 8.7 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/openjfx/javafx/21.0.8/javafx-21.0.8.pom (8.7 kB at 223 kB/s)
+#10 4.752 Downloading from central: https://repo.maven.apache.org/maven2/org/openjfx/javafx-graphics/21.0.8/javafx-graphics-21.0.8.pom
+#10 4.788 Progress (1): 1.0 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/openjfx/javafx-graphics/21.0.8/javafx-graphics-21.0.8.pom (1.0 kB at 28 kB/s)
+#10 4.794 Downloading from central: https://repo.maven.apache.org/maven2/org/openjfx/javafx-base/21.0.8/javafx-base-21.0.8.pom
+#10 4.833 Progress (1): 881 B                   Downloaded from central: https://repo.maven.apache.org/maven2/org/openjfx/javafx-base/21.0.8/javafx-base-21.0.8.pom (881 B at 22 kB/s)
+#10 4.838 Downloading from central: https://repo.maven.apache.org/maven2/org/openjfx/javafx-fxml/21.0.8/javafx-fxml-21.0.8.pom
+#10 4.867 Progress (1): 1.0 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/openjfx/javafx-fxml/21.0.8/javafx-fxml-21.0.8.pom (1.0 kB at 34 kB/s)
+#10 4.884 Downloading from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter/5.14.0/junit-jupiter-5.14.0.jar
+#10 4.926 Progress (1): 6.4 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter/5.14.0/junit-jupiter-5.14.0.jar (6.4 kB at 145 kB/s)
+#10 4.929 Downloading from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-api/5.14.0/junit-jupiter-api-5.14.0.jar
+#10 4.929 Downloading from central: https://repo.maven.apache.org/maven2/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar
+#10 4.930 Downloading from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-commons/1.14.0/junit-platform-commons-1.14.0.jar
+#10 4.930 Downloading from central: https://repo.maven.apache.org/maven2/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar
+#10 4.931 Downloading from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-params/5.14.0/junit-jupiter-params-5.14.0.jar
+#10 4.961 Progress (1): 3.2/242 kBProgress (1): 20/242 kB Progress (1): 28/242 kBProgress (1): 44/242 kBProgress (1): 61/242 kBProgress (1): 77/242 kBProgress (1): 93/242 kBProgress (1): 110/242 kBProgress (1): 126/242 kBProgress (1): 142/242 kBProgress (1): 159/242 kBProgress (1): 175/242 kBProgress (1): 192/242 kBProgress (1): 208/242 kBProgress (1): 224/242 kBProgress (1): 241/242 kBProgress (1): 242 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-api/5.14.0/junit-jupiter-api-5.14.0.jar (242 kB at 3.6 MB/s)
+#10 4.995 Downloading from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-engine/5.14.0/junit-jupiter-engine-5.14.0.jar
+#10 5.016 Progress (1): 0.5/164 kBProgress (1): 1.9/164 kBProgress (1): 3.2/164 kBProgress (1): 4.5/164 kBProgress (1): 5.9/164 kBProgress (1): 7.3/164 kBProgress (1): 8.6/164 kBProgress (1): 10/164 kB Progress (1): 11/164 kBProgress (1): 13/164 kBProgress (1): 14/164 kBProgress (1): 15/164 kBProgress (1): 17/164 kBProgress (1): 18/164 kBProgress (1): 20/164 kBProgress (1): 21/164 kBProgress (1): 22/164 kBProgress (1): 24/164 kBProgress (1): 25/164 kBProgress (1): 26/164 kBProgress (1): 28/164 kBProgress (1): 29/164 kBProgress (1): 31/164 kBProgress (1): 32/164 kBProgress (1): 33/164 kBProgress (1): 35/164 kBProgress (1): 36/164 kBProgress (1): 37/164 kBProgress (1): 39/164 kBProgress (1): 40/164 kBProgress (1): 41/164 kBProgress (1): 43/164 kBProgress (1): 44/164 kBProgress (1): 46/164 kBProgress (1): 47/164 kBProgress (1): 48/164 kBProgress (1): 50/164 kBProgress (1): 51/164 kBProgress (1): 52/164 kBProgress (1): 54/164 kBProgress (1): 55/164 kBProgress (1): 59/164 kBProgress (1): 61/164 kBProgress (1): 65/164 kBProgress (1): 69/164 kBProgress (2): 69/164 kB | 0.5/6.8 kBProgress (3): 69/164 kB | 0.5/6.8 kB | 0.5/14 kBProgress (3): 69/164 kB | 1.9/6.8 kB | 0.5/14 kBProgress (3): 69/164 kB | 1.9/6.8 kB | 1.9/14 kBProgress (3): 69/164 kB | 3.3/6.8 kB | 1.9/14 kBProgress (3): 69/164 kB | 3.3/6.8 kB | 3.2/14 kBProgress (3): 69/164 kB | 4.7/6.8 kB | 3.2/14 kBProgress (3): 69/164 kB | 4.7/6.8 kB | 4.5/14 kBProgress (3): 69/164 kB | 6.0/6.8 kB | 4.5/14 kBProgress (3): 69/164 kB | 6.0/6.8 kB | 5.9/14 kBProgress (3): 69/164 kB | 6.8 kB | 5.9/14 kB    Progress (3): 69/164 kB | 6.8 kB | 7.3/14 kBProgress (3): 69/164 kB | 6.8 kB | 8.7/14 kBProgress (3): 69/164 kB | 6.8 kB | 10/14 kB Progress (3): 69/164 kB | 6.8 kB | 11/14 kBProgress (3): 69/164 kB | 6.8 kB | 13/14 kBProgress (3): 69/164 kB | 6.8 kB | 14/14 kBProgress (3): 69/164 kB | 6.8 kB | 14 kB                                           Downloaded from central: https://repo.maven.apache.org/maven2/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar (6.8 kB at 69 kB/s)
+#10 5.028 Downloading from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-engine/1.14.0/junit-platform-engine-1.14.0.jar
+#10 5.028 Downloaded from central: https://repo.maven.apache.org/maven2/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar (14 kB at 144 kB/s)
+#10 5.028 Downloading from central: https://repo.maven.apache.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.5.11/mariadb-java-client-3.5.11.jar
+#10 5.029 Progress (2): 69/164 kB | 0.5/662 kBProgress (2): 69/164 kB | 1.9/662 kBProgress (2): 69/164 kB | 3.2/662 kBProgress (2): 69/164 kB | 4.5/662 kBProgress (2): 69/164 kB | 5.9/662 kBProgress (2): 69/164 kB | 7.3/662 kBProgress (2): 69/164 kB | 8.7/662 kBProgress (2): 69/164 kB | 10/662 kB Progress (2): 69/164 kB | 11/662 kBProgress (2): 69/164 kB | 13/662 kBProgress (2): 69/164 kB | 14/662 kBProgress (2): 69/164 kB | 15/662 kBProgress (2): 69/164 kB | 17/662 kBProgress (2): 69/164 kB | 18/662 kBProgress (2): 69/164 kB | 20/662 kBProgress (2): 69/164 kB | 21/662 kBProgress (2): 69/164 kB | 22/662 kBProgress (2): 69/164 kB | 24/662 kBProgress (2): 69/164 kB | 25/662 kBProgress (2): 69/164 kB | 26/662 kBProgress (2): 69/164 kB | 28/662 kBProgress (2): 69/164 kB | 29/662 kBProgress (2): 69/164 kB | 30/662 kBProgress (2): 69/164 kB | 32/662 kBProgress (2): 69/164 kB | 33/662 kBProgress (2): 69/164 kB | 35/662 kBProgress (2): 69/164 kB | 36/662 kBProgress (2): 69/164 kB | 37/662 kBProgress (2): 69/164 kB | 39/662 kBProgress (2): 69/164 kB | 40/662 kBProgress (2): 69/164 kB | 41/662 kBProgress (2): 69/164 kB | 43/662 kBProgress (2): 69/164 kB | 44/662 kBProgress (2): 69/164 kB | 46/662 kBProgress (2): 73/164 kB | 46/662 kBProgress (2): 73/164 kB | 47/662 kBProgress (2): 73/164 kB | 48/662 kBProgress (2): 73/164 kB | 50/662 kBProgress (2): 77/164 kB | 50/662 kBProgress (2): 77/164 kB | 51/662 kBProgress (2): 82/164 kB | 51/662 kBProgress (2): 82/164 kB | 52/662 kBProgress (3): 82/164 kB | 52/662 kB | 7.4/341 kBProgress (3): 82/164 kB | 52/662 kB | 8.2/341 kBProgress (3): 82/164 kB | 54/662 kB | 8.2/341 kBProgress (3): 86/164 kB | 54/662 kB | 8.2/341 kBProgress (3): 90/164 kB | 54/662 kB | 8.2/341 kBProgress (3): 90/164 kB | 54/662 kB | 16/341 kB Progress (3): 90/164 kB | 54/662 kB | 25/341 kBProgress (3): 94/164 kB | 54/662 kB | 25/341 kBProgress (3): 94/164 kB | 54/662 kB | 41/341 kBProgress (3): 99/164 kB | 54/662 kB | 41/341 kBProgress (3): 103/164 kB | 54/662 kB | 41/341 kBProgress (3): 103/164 kB | 54/662 kB | 57/341 kBProgress (3): 103/164 kB | 54/662 kB | 74/341 kBProgress (3): 103/164 kB | 55/662 kB | 74/341 kBProgress (3): 103/164 kB | 59/662 kB | 74/341 kBProgress (3): 103/164 kB | 61/662 kB | 74/341 kBProgress (3): 103/164 kB | 65/662 kB | 74/341 kBProgress (3): 103/164 kB | 69/662 kB | 74/341 kBProgress (3): 103/164 kB | 69/662 kB | 90/341 kBProgress (3): 107/164 kB | 69/662 kB | 90/341 kBProgress (3): 111/164 kB | 69/662 kB | 90/341 kBProgress (3): 115/164 kB | 69/662 kB | 90/341 kBProgress (3): 120/164 kB | 69/662 kB | 90/341 kBProgress (3): 120/164 kB | 69/662 kB | 106/341 kBProgress (3): 124/164 kB | 69/662 kB | 106/341 kBProgress (3): 128/164 kB | 69/662 kB | 106/341 kBProgress (3): 132/164 kB | 69/662 kB | 106/341 kBProgress (3): 132/164 kB | 69/662 kB | 123/341 kBProgress (3): 137/164 kB | 69/662 kB | 123/341 kBProgress (3): 137/164 kB | 69/662 kB | 131/341 kBProgress (3): 141/164 kB | 69/662 kB | 131/341 kBProgress (3): 145/164 kB | 69/662 kB | 131/341 kBProgress (3): 149/164 kB | 69/662 kB | 131/341 kBProgress (3): 149/164 kB | 69/662 kB | 147/341 kBProgress (3): 149/164 kB | 69/662 kB | 164/341 kBProgress (3): 154/164 kB | 69/662 kB | 164/341 kBProgress (3): 158/164 kB | 69/662 kB | 164/341 kBProgress (3): 158/164 kB | 69/662 kB | 180/341 kBProgress (3): 162/164 kB | 69/662 kB | 180/341 kBProgress (3): 162/164 kB | 69/662 kB | 197/341 kBProgress (3): 164 kB | 69/662 kB | 197/341 kB    Progress (3): 164 kB | 69/662 kB | 213/341 kBProgress (3): 164 kB | 69/662 kB | 221/341 kB                                             Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-commons/1.14.0/junit-platform-commons-1.14.0.jar (164 kB at 1.2 MB/s)
+#10 5.065 Downloading from central: https://repo.maven.apache.org/maven2/org/openjfx/javafx-controls/21.0.8/javafx-controls-21.0.8.jar
+#10 5.066 Progress (2): 69/662 kB | 238/341 kBProgress (2): 69/662 kB | 254/341 kBProgress (2): 69/662 kB | 270/341 kBProgress (2): 69/662 kB | 287/341 kBProgress (2): 69/662 kB | 303/341 kBProgress (2): 73/662 kB | 303/341 kBProgress (2): 73/662 kB | 319/341 kBProgress (2): 77/662 kB | 319/341 kBProgress (2): 82/662 kB | 319/341 kBProgress (2): 86/662 kB | 319/341 kBProgress (2): 90/662 kB | 319/341 kBProgress (2): 94/662 kB | 319/341 kBProgress (2): 94/662 kB | 336/341 kBProgress (2): 99/662 kB | 336/341 kBProgress (2): 99/662 kB | 341 kB    Progress (2): 103/662 kB | 341 kBProgress (2): 107/662 kB | 341 kBProgress (2): 111/662 kB | 341 kBProgress (2): 115/662 kB | 341 kBProgress (2): 120/662 kB | 341 kB                                 Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-engine/5.14.0/junit-jupiter-engine-5.14.0.jar (341 kB at 2.3 MB/s)
+#10 5.080 Downloading from central: https://repo.maven.apache.org/maven2/org/openjfx/javafx-controls/21.0.8/javafx-controls-21.0.8-linux-aarch64.jar
+#10 5.081 Progress (1): 124/662 kBProgress (1): 126/662 kBProgress (1): 130/662 kBProgress (1): 135/662 kBProgress (1): 139/662 kBProgress (1): 143/662 kBProgress (1): 147/662 kBProgress (1): 151/662 kBProgress (1): 156/662 kBProgress (1): 160/662 kBProgress (1): 164/662 kBProgress (1): 168/662 kBProgress (1): 173/662 kBProgress (1): 177/662 kBProgress (1): 181/662 kBProgress (1): 185/662 kBProgress (1): 189/662 kBProgress (1): 192/662 kBProgress (1): 196/662 kBProgress (1): 200/662 kBProgress (2): 200/662 kB | 0.5/793 kBProgress (2): 200/662 kB | 1.9/793 kBProgress (2): 200/662 kB | 3.3/793 kBProgress (2): 200/662 kB | 4.7/793 kBProgress (2): 200/662 kB | 6.0/793 kBProgress (2): 200/662 kB | 7.4/793 kBProgress (2): 200/662 kB | 8.8/793 kBProgress (2): 200/662 kB | 10/793 kB Progress (2): 200/662 kB | 11/793 kBProgress (2): 200/662 kB | 13/793 kBProgress (2): 200/662 kB | 14/793 kBProgress (2): 200/662 kB | 16/793 kBProgress (2): 200/662 kB | 17/793 kBProgress (2): 200/662 kB | 18/793 kBProgress (2): 200/662 kB | 20/793 kBProgress (2): 200/662 kB | 21/793 kBProgress (2): 200/662 kB | 22/793 kBProgress (2): 200/662 kB | 24/793 kBProgress (2): 200/662 kB | 25/793 kBProgress (2): 200/662 kB | 26/793 kBProgress (3): 200/662 kB | 26/793 kB | 0.5/272 kBProgress (3): 200/662 kB | 27/793 kB | 0.5/272 kBProgress (3): 200/662 kB | 29/793 kB | 0.5/272 kBProgress (3): 200/662 kB | 29/793 kB | 1.9/272 kBProgress (3): 200/662 kB | 29/793 kB | 3.3/272 kBProgress (3): 200/662 kB | 29/793 kB | 4.7/272 kBProgress (3): 200/662 kB | 29/793 kB | 6.0/272 kBProgress (3): 200/662 kB | 29/793 kB | 7.4/272 kBProgress (3): 200/662 kB | 29/793 kB | 7.7/272 kBProgress (3): 200/662 kB | 30/793 kB | 7.7/272 kBProgress (3): 200/662 kB | 30/793 kB | 9.1/272 kBProgress (3): 200/662 kB | 31/793 kB | 9.1/272 kBProgress (3): 200/662 kB | 31/793 kB | 10/272 kB Progress (3): 200/662 kB | 31/793 kB | 12/272 kBProgress (3): 200/662 kB | 33/793 kB | 12/272 kBProgress (3): 200/662 kB | 33/793 kB | 13/272 kBProgress (3): 200/662 kB | 34/793 kB | 13/272 kBProgress (3): 200/662 kB | 34/793 kB | 15/272 kBProgress (3): 200/662 kB | 36/793 kB | 15/272 kBProgress (3): 200/662 kB | 37/793 kB | 15/272 kBProgress (3): 200/662 kB | 37/793 kB | 16/272 kBProgress (3): 200/662 kB | 38/793 kB | 16/272 kBProgress (3): 200/662 kB | 38/793 kB | 17/272 kBProgress (3): 200/662 kB | 40/793 kB | 17/272 kBProgress (3): 200/662 kB | 40/793 kB | 19/272 kBProgress (3): 200/662 kB | 41/793 kB | 19/272 kBProgress (3): 200/662 kB | 41/793 kB | 20/272 kBProgress (3): 200/662 kB | 42/793 kB | 20/272 kBProgress (3): 200/662 kB | 42/793 kB | 21/272 kBProgress (3): 200/662 kB | 44/793 kB | 21/272 kBProgress (3): 200/662 kB | 44/793 kB | 23/272 kBProgress (3): 200/662 kB | 44/793 kB | 24/272 kBProgress (3): 200/662 kB | 45/793 kB | 24/272 kBProgress (3): 200/662 kB | 45/793 kB | 25/272 kBProgress (3): 200/662 kB | 46/793 kB | 25/272 kBProgress (3): 200/662 kB | 46/793 kB | 27/272 kBProgress (3): 200/662 kB | 51/793 kB | 27/272 kBProgress (3): 200/662 kB | 55/793 kB | 27/272 kBProgress (3): 200/662 kB | 55/793 kB | 28/272 kBProgress (3): 200/662 kB | 57/793 kB | 28/272 kBProgress (3): 200/662 kB | 57/793 kB | 30/272 kBProgress (3): 200/662 kB | 62/793 kB | 30/272 kBProgress (3): 200/662 kB | 62/793 kB | 31/272 kBProgress (3): 200/662 kB | 66/793 kB | 31/272 kBProgress (3): 200/662 kB | 66/793 kB | 32/272 kBProgress (3): 200/662 kB | 66/793 kB | 34/272 kBProgress (3): 200/662 kB | 66/793 kB | 35/272 kBProgress (3): 200/662 kB | 66/793 kB | 36/272 kBProgress (3): 200/662 kB | 66/793 kB | 38/272 kBProgress (3): 200/662 kB | 66/793 kB | 42/272 kBProgress (3): 200/662 kB | 66/793 kB | 46/272 kBProgress (3): 200/662 kB | 66/793 kB | 50/272 kBProgress (3): 200/662 kB | 70/793 kB | 50/272 kBProgress (3): 200/662 kB | 70/793 kB | 55/272 kBProgress (3): 200/662 kB | 74/793 kB | 55/272 kBProgress (3): 200/662 kB | 74/793 kB | 57/272 kBProgress (3): 200/662 kB | 78/793 kB | 57/272 kBProgress (3): 204/662 kB | 78/793 kB | 57/272 kBProgress (3): 204/662 kB | 78/793 kB | 61/272 kBProgress (3): 208/662 kB | 78/793 kB | 61/272 kBProgress (3): 208/662 kB | 78/793 kB | 65/272 kBProgress (3): 213/662 kB | 78/793 kB | 65/272 kBProgress (3): 213/662 kB | 78/793 kB | 66/272 kBProgress (3): 217/662 kB | 78/793 kB | 66/272 kBProgress (3): 217/662 kB | 78/793 kB | 70/272 kBProgress (3): 233/662 kB | 78/793 kB | 70/272 kBProgress (3): 250/662 kB | 78/793 kB | 70/272 kBProgress (3): 266/662 kB | 78/793 kB | 70/272 kBProgress (3): 282/662 kB | 78/793 kB | 70/272 kBProgress (4): 282/662 kB | 78/793 kB | 70/272 kB | 306 B                                                        Downloaded from central: https://repo.maven.apache.org/maven2/org/openjfx/javafx-controls/21.0.8/javafx-controls-21.0.8.jar (306 B at 1.6 kB/s)
+#10 5.118 Downloading from central: https://repo.maven.apache.org/maven2/org/openjfx/javafx-graphics/21.0.8/javafx-graphics-21.0.8.jar
+#10 5.119 Progress (3): 299/662 kB | 78/793 kB | 70/272 kBProgress (3): 315/662 kB | 78/793 kB | 70/272 kBProgress (3): 323/662 kB | 78/793 kB | 70/272 kBProgress (3): 323/662 kB | 78/793 kB | 74/272 kBProgress (3): 323/662 kB | 83/793 kB | 74/272 kBProgress (3): 339/662 kB | 83/793 kB | 74/272 kB                                                Progress (3): 339/662 kB | 87/793 kB | 74/272 kB                                                Downloading from central: https://repo.maven.apache.org/maven2/org/openjfx/javafx-graphics/21.0.8/javafx-graphics-21.0.8-linux-aarch64.jar
+#10 5.124 Progress (3): 339/662 kB | 91/793 kB | 74/272 kBProgress (3): 339/662 kB | 95/793 kB | 74/272 kBProgress (3): 339/662 kB | 95/793 kB | 78/272 kBProgress (3): 339/662 kB | 100/793 kB | 78/272 kBProgress (3): 339/662 kB | 104/793 kB | 78/272 kBProgress (3): 339/662 kB | 104/793 kB | 82/272 kBProgress (3): 339/662 kB | 104/793 kB | 87/272 kBProgress (3): 339/662 kB | 104/793 kB | 91/272 kBProgress (3): 339/662 kB | 108/793 kB | 91/272 kBProgress (3): 339/662 kB | 112/793 kB | 91/272 kBProgress (3): 355/662 kB | 112/793 kB | 91/272 kBProgress (3): 355/662 kB | 112/793 kB | 95/272 kBProgress (3): 355/662 kB | 117/793 kB | 95/272 kBProgress (3): 355/662 kB | 117/793 kB | 99/272 kBProgress (3): 355/662 kB | 121/793 kB | 99/272 kBProgress (3): 355/662 kB | 123/793 kB | 99/272 kBProgress (3): 355/662 kB | 127/793 kB | 99/272 kBProgress (3): 355/662 kB | 131/793 kB | 99/272 kBProgress (3): 355/662 kB | 131/793 kB | 104/272 kBProgress (3): 355/662 kB | 131/793 kB | 108/272 kBProgress (3): 355/662 kB | 136/793 kB | 108/272 kBProgress (3): 355/662 kB | 140/793 kB | 108/272 kBProgress (3): 355/662 kB | 144/793 kB | 108/272 kBProgress (3): 355/662 kB | 148/793 kB | 108/272 kBProgress (3): 355/662 kB | 148/793 kB | 112/272 kBProgress (3): 355/662 kB | 152/793 kB | 112/272 kBProgress (3): 355/662 kB | 152/793 kB | 115/272 kBProgress (3): 355/662 kB | 152/793 kB | 119/272 kBProgress (3): 355/662 kB | 157/793 kB | 119/272 kBProgress (3): 355/662 kB | 157/793 kB | 123/272 kBProgress (3): 355/662 kB | 161/793 kB | 123/272 kBProgress (3): 355/662 kB | 165/793 kB | 123/272 kBProgress (3): 355/662 kB | 169/793 kB | 123/272 kBProgress (3): 355/662 kB | 169/793 kB | 127/272 kBProgress (3): 355/662 kB | 174/793 kB | 127/272 kBProgress (3): 355/662 kB | 178/793 kB | 127/272 kBProgress (3): 355/662 kB | 178/793 kB | 131/272 kBProgress (3): 355/662 kB | 182/793 kB | 131/272 kBProgress (3): 355/662 kB | 182/793 kB | 135/272 kBProgress (3): 355/662 kB | 182/793 kB | 140/272 kBProgress (3): 355/662 kB | 182/793 kB | 144/272 kBProgress (3): 355/662 kB | 182/793 kB | 148/272 kBProgress (3): 355/662 kB | 182/793 kB | 152/272 kBProgress (3): 355/662 kB | 182/793 kB | 156/272 kBProgress (3): 355/662 kB | 182/793 kB | 161/272 kBProgress (3): 355/662 kB | 182/793 kB | 165/272 kBProgress (3): 355/662 kB | 182/793 kB | 169/272 kBProgress (3): 372/662 kB | 182/793 kB | 169/272 kBProgress (3): 388/662 kB | 182/793 kB | 169/272 kBProgress (3): 405/662 kB | 182/793 kB | 169/272 kBProgress (3): 421/662 kB | 182/793 kB | 169/272 kBProgress (3): 437/662 kB | 182/793 kB | 169/272 kBProgress (3): 454/662 kB | 182/793 kB | 169/272 kBProgress (3): 454/662 kB | 186/793 kB | 169/272 kBProgress (3): 454/662 kB | 191/793 kB | 169/272 kBProgress (3): 470/662 kB | 191/793 kB | 169/272 kBProgress (3): 470/662 kB | 195/793 kB | 169/272 kBProgress (3): 470/662 kB | 199/793 kB | 169/272 kBProgress (3): 486/662 kB | 199/793 kB | 169/272 kBProgress (3): 486/662 kB | 203/793 kB | 169/272 kBProgress (3): 486/662 kB | 203/793 kB | 173/272 kBProgress (3): 486/662 kB | 207/793 kB | 173/272 kBProgress (3): 486/662 kB | 207/793 kB | 178/272 kBProgress (3): 503/662 kB | 207/793 kB | 178/272 kBProgress (3): 503/662 kB | 207/793 kB | 180/272 kBProgress (3): 519/662 kB | 207/793 kB | 180/272 kBProgress (3): 519/662 kB | 207/793 kB | 184/272 kBProgress (3): 536/662 kB | 207/793 kB | 184/272 kBProgress (3): 536/662 kB | 212/793 kB | 184/272 kBProgress (3): 536/662 kB | 212/793 kB | 189/272 kBProgress (3): 536/662 kB | 212/793 kB | 193/272 kBProgress (3): 552/662 kB | 212/793 kB | 193/272 kBProgress (3): 552/662 kB | 212/793 kB | 197/272 kBProgress (3): 552/662 kB | 228/793 kB | 197/272 kBProgress (4): 552/662 kB | 228/793 kB | 197/272 kB | 306 B                                                          Downloaded from central: https://repo.maven.apache.org/maven2/org/openjfx/javafx-graphics/21.0.8/javafx-graphics-21.0.8.jar (306 B at 1.3 kB/s)
+#10 5.175 Progress (3): 552/662 kB | 228/793 kB | 214/272 kB                                                  Downloading from central: https://repo.maven.apache.org/maven2/org/openjfx/javafx-base/21.0.8/javafx-base-21.0.8.jar
+#10 5.178 Progress (3): 552/662 kB | 228/793 kB | 217/272 kBProgress (3): 552/662 kB | 244/793 kB | 217/272 kBProgress (3): 552/662 kB | 254/793 kB | 217/272 kBProgress (3): 552/662 kB | 270/793 kB | 217/272 kBProgress (3): 552/662 kB | 270/793 kB | 233/272 kBProgress (3): 552/662 kB | 287/793 kB | 233/272 kBProgress (3): 552/662 kB | 287/793 kB | 250/272 kBProgress (3): 552/662 kB | 303/793 kB | 250/272 kBProgress (3): 552/662 kB | 303/793 kB | 266/272 kBProgress (3): 552/662 kB | 303/793 kB | 272 kB    Progress (3): 568/662 kB | 303/793 kB | 272 kB                                              Downloading from central: https://repo.maven.apache.org/maven2/org/openjfx/javafx-base/21.0.8/javafx-base-21.0.8-linux-aarch64.jar
+#10 5.192 Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-engine/1.14.0/junit-platform-engine-1.14.0.jar (272 kB at 1.0 MB/s)
+#10 5.192 Downloading from central: https://repo.maven.apache.org/maven2/org/openjfx/javafx-fxml/21.0.8/javafx-fxml-21.0.8.jar
+#10 5.192 Progress (2): 585/662 kB | 303/793 kBProgress (2): 601/662 kB | 303/793 kBProgress (2): 618/662 kB | 303/793 kBProgress (2): 634/662 kB | 303/793 kBProgress (2): 634/662 kB | 319/793 kBProgress (2): 650/662 kB | 319/793 kBProgress (2): 650/662 kB | 336/793 kBProgress (2): 662 kB | 336/793 kB    Progress (2): 662 kB | 352/793 kB                                 Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-params/5.14.0/junit-jupiter-params-5.14.0.jar (662 kB at 2.4 MB/s)
+#10 5.207 Downloading from central: https://repo.maven.apache.org/maven2/org/openjfx/javafx-fxml/21.0.8/javafx-fxml-21.0.8-linux-aarch64.jar
+#10 5.208 Progress (1): 369/793 kBProgress (1): 385/793 kBProgress (1): 401/793 kBProgress (1): 418/793 kBProgress (1): 434/793 kBProgress (1): 451/793 kBProgress (1): 467/793 kBProgress (1): 483/793 kBProgress (1): 500/793 kBProgress (2): 500/793 kB | 302 BProgress (2): 516/793 kB | 302 B                                Downloaded from central: https://repo.maven.apache.org/maven2/org/openjfx/javafx-base/21.0.8/javafx-base-21.0.8.jar (302 B at 1.0 kB/s)
+#10 5.232 Progress (1): 532/793 kBProgress (1): 549/793 kBProgress (1): 565/793 kB                        Progress (1): 582/793 kBProgress (1): 598/793 kBProgress (1): 614/793 kBProgress (2): 614/793 kB | 302 BProgress (2): 631/793 kB | 302 B                                Downloaded from central: https://repo.maven.apache.org/maven2/org/openjfx/javafx-fxml/21.0.8/javafx-fxml-21.0.8.jar (302 B at 958 B/s)
+#10 5.247 Progress (1): 647/793 kBProgress (1): 664/793 kBProgress (1): 680/793 kBProgress (1): 696/793 kBProgress (1): 713/793 kBProgress (1): 721/793 kBProgress (1): 737/793 kBProgress (1): 754/793 kB                        Progress (1): 770/793 kBProgress (1): 786/793 kBProgress (1): 793 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.5.11/mariadb-java-client-3.5.11.jar (793 kB at 2.4 MB/s)
+#10 5.269 [INFO] ------------------------------------------------------------------------
+#10 5.269 [INFO] BUILD FAILURE
+#10 5.269 [INFO] ------------------------------------------------------------------------
+#10 5.272 [INFO] Total time:  3.775 s
+#10 5.272 [INFO] Finished at: 2026-11-07T21:40:09Z
+#10 5.272 [INFO] ------------------------------------------------------------------------
+#10 5.275 [ERROR] Failed to execute goal on project TemperatureConverter: Could not resolve dependencies for project org.example:TemperatureConverter:jar:1.0-SNAPSHOT: The following artifacts could not be resolved: org.openjfx:javafx-controls:jar:linux-aarch64:21.0.8 (absent), org.openjfx:javafx-graphics:jar:linux-aarch64:21.0.8 (absent), org.openjfx:javafx-base:jar:linux-aarch64:21.0.8 (absent), org.openjfx:javafx-fxml:jar:linux-aarch64:21.0.8 (absent): Could not find artifact org.openjfx:javafx-controls:jar:linux-aarch64:21.0.8 in central (https://repo.maven.apache.org/maven2) -> [Help 1]
+#10 5.275 [ERROR] 
+#10 5.275 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+#10 5.275 [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+#10 5.275 [ERROR] 
+#10 5.275 [ERROR] For more information about the errors and possible solutions, please read the following articles:
+#10 5.275 [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+#10 ERROR: process "/bin/sh -c mvn clean package -DskipTests" did not complete successfully: exit code: 1
+------
+ > [6/6] RUN mvn clean package -DskipTests:
+5.272 [INFO] Total time:  3.775 s
+5.272 [INFO] Finished at: 2026-11-07T21:40:09Z
+5.272 [INFO] ------------------------------------------------------------------------
+5.275 [ERROR] Failed to execute goal on project TemperatureConverter: Could not resolve dependencies for project org.example:TemperatureConverter:jar:1.0-SNAPSHOT: The following artifacts could not be resolved: org.openjfx:javafx-controls:jar:linux-aarch64:21.0.8 (absent), org.openjfx:javafx-graphics:jar:linux-aarch64:21.0.8 (absent), org.openjfx:javafx-base:jar:linux-aarch64:21.0.8 (absent), org.openjfx:javafx-fxml:jar:linux-aarch64:21.0.8 (absent): Could not find artifact org.openjfx:javafx-controls:jar:linux-aarch64:21.0.8 in central (https://repo.maven.apache.org/maven2) -> [Help 1]
+5.275 [ERROR] 
+5.275 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+5.275 [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+5.275 [ERROR] 
+5.275 [ERROR] For more information about the errors and possible solutions, please read the following articles:
+5.275 [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+------
+Dockerfile:30
+--------------------
+  28 |     
+  29 |     # Build application
+  30 | >>> RUN mvn clean package -DskipTests
+  31 |     
+  32 |     # JavaFX software rendering
+--------------------
+ERROR: failed to build: failed to solve: process "/bin/sh -c mvn clean package -DskipTests" did not complete successfully: exit code: 1
