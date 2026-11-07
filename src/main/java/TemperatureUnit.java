@@ -1,8 +1,8 @@
 public class TemperatureUnit {
 
     private int id;
-    private String name;
-    private String symbol;
+    private final String name;
+    private final String symbol;
 
     // Constructor without ID for new database records
     public TemperatureUnit(String name, String symbol) {

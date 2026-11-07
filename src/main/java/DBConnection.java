@@ -1,3 +1,4 @@
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -5,25 +6,31 @@ import java.sql.Statement;
 
 public class DBConnection {
 
-    // Database host: localhost for Mac, configurable for Docker
+    // Database configuration for Mac and Docker
     private static final String HOST =
             System.getenv().getOrDefault("DB_HOST", "localhost");
 
-
     private static final String URL =
-            "jdbc:mariadb://" +
-                    System.getenv().getOrDefault("DB_HOST", "127.0.0.1")
-                    + ":3306/temperature_converter";
+            System.getenv().getOrDefault(
+                    "DB_URL",
+                    "jdbc:mariadb://" + HOST + ":3306/temperature_converter"
+            );
 
     private static final String USER =
-            System.getenv().getOrDefault("DB_USER", "root");
+            System.getenv().getOrDefault("DB_USER", "temp_app");
 
     private static final String PASSWORD =
-            System.getenv().getOrDefault("DB_PASSWORD", "");
-
+            System.getenv("DB_PASSWORD");
 
     // Connect to MariaDB
     public static Connection getConnection() throws SQLException {
+
+        if (PASSWORD == null || PASSWORD.isBlank()) {
+            throw new SQLException(
+                    "DB_PASSWORD environment variable is not configured."
+            );
+        }
+
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 

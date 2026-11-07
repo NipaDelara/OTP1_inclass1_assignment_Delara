@@ -1,10 +1,8 @@
-
-# Java 21 and Maven
 FROM maven:3.9.6-eclipse-temurin-21
 
 WORKDIR /app
 
-# Install JavaFX, X11 libraries and multilingual fonts
+# Install JavaFX GUI dependencies and VNC
 RUN apt-get update && apt-get install -y \
     libgtk-3-0 \
     libx11-6 \
@@ -17,19 +15,22 @@ RUN apt-get update && apt-get install -y \
     fonts-noto-cjk \
     fonts-noto-core \
     fontconfig \
+    xvfb \
+    x11vnc \
+    x11-utils \
+    xauth \
     && fc-cache -f \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy Maven configuration and Java source files
+# Copy project files
 COPY pom.xml .
 COPY src ./src
 
-# Build the application
+# Build application
 RUN mvn clean package -DskipTests
 
-# Configure JavaFX display
-ENV DISPLAY=host.docker.internal:0.0
+# JavaFX software rendering
 ENV JAVA_TOOL_OPTIONS="-Dprism.order=sw"
 
-# Start JavaFX application
-CMD ["mvn", "javafx:run"]
+# Start JavaFX with virtual display
+CMD ["xvfb-run", "-a", "mvn", "javafx:run"]

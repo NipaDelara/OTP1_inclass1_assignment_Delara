@@ -1,186 +1,326 @@
-## Temperature Converter Application
+# Temperature Converter Application
 
-Individual In-Class Assignment
-Name: Delara Nipa
+**Individual In-Class Assignment**  
+**Name:** Delara Nipa  
+**Project:** OTP1 In-Class Assignment  
+**Repository:** https://github.com/NipaDelara/OTP1_inclass1_assignment_Delara
 
-### 1. Assignment Description
+## 1. Assignment Description
 
-The objective of this assignment is to develop a Java-based Temperature Converter 
-application with a graphical user interface, database integration, automated testing, 
-and Docker support.
+The objective of this assignment is to develop a Java-based Temperature Converter application with a graphical user interface, database integration, multilingual support, automated testing, and containerization.
 
-The application allows users to convert temperatures between Celsius, Fahrenheit, 
-and Kelvin.
+The application allows users to convert temperatures between Celsius, Fahrenheit, and Kelvin and save conversion history in MariaDB.
 
-##### Main functionalities:
-* Convert Celsius to Fahrenheit.
-* Convert Fahrenheit to Celsius.
-* Convert Kelvin to Celsius.
-* Check extreme temperatures.
-* Provide a graphical user interface using JavaFX.
-* Save and retrieve temperature conversion data using MariaDB.
+### Main Functionalities
 
-##### Deliverables:
+- Convert Celsius to Fahrenheit.
+- Convert Fahrenheit to Celsius.
+- Convert Kelvin to Celsius.
+- Check extreme temperatures.
+- Provide an interactive JavaFX graphical interface.
+- Support English, Finnish, Swedish, Japanese, and Arabic.
+- Save and retrieve temperature conversion records using MariaDB.
+- Store localized temperature unit information in the database.
+- Run the application using Docker and an X server.
 
-### 2. Technologies & Tools Used
-* Java 21 - Main programming language
-* JavaFX - Graphical user interface
-* Maven - Build and dependency management
-* MariaDB - Database management
-* JDBC - Database connectivity
-* JUnit 5 - Unit testing
-* JaCoCo - Code coverage analysis
-* Docker - Containerization
-* Jenkins - Continuous integration
-* IntelliJ IDEA - Development environment
-* Git & GitHub - Version control
+## 2. Technologies and Tools Used
 
-### 3. Design Approach & Implementation Method
+| Technology | Purpose |
+|---|---|
+| Java 21 | Main programming language |
+| JavaFX | Graphical user interface |
+| Maven | Build and dependency management |
+| MariaDB | Database management |
+| JDBC | Database connectivity |
+| JUnit 5 | Automated unit testing |
+| JaCoCo | Code coverage analysis |
+| Docker | Containerization |
+| Jenkins | Continuous integration |
+| Kubernetes / Minikube | Container deployment |
+| TigerVNC / Xvfb | Running the Docker GUI on macOS |
+| IntelliJ IDEA | Development environment |
+| Git and GitHub | Version control |
+
+## 3. Design Approach and Implementation
 
 The application was developed using object-oriented programming principles.
 
-#### Temperature Conversion:
-The TemperatureConverter class contains the temperature conversion methods.
+### Temperature Conversion
 
-* celsiusToFahrenheit()
+The `TemperatureConverter` and `TempCalculator` classes provide the temperature conversion functionality.
 
-* fahrenheitToCelsius()
+Methods include:
 
-* kelvinToCelsius()
+- `celsiusToFahrenheit()`
+- `fahrenheitToCelsius()`
+- `kelvinToCelsius()`
+- `isExtremeTemperature()`
 
-* isExtremeTemperature()
+### Graphical User Interface
 
-#### Graphical User Interface:
+The `TemperatureConverterGUI` class uses JavaFX to provide an interactive interface.
 
-The TemperatureConverterGUI class uses JavaFX to provide an interactive interface where users can enter temperature values, select conversions, and view results.
+Users can enter temperature values, select source and target units, change the interface language, convert temperatures, and view conversion history.
 
-#### Database Integration:
+### Database Integration
 
-MariaDB is used for storing temperature conversion information.
+MariaDB stores temperature units, translations, and conversion history.
 
-DBConnection manages database connectivity.
+The database integration uses the following classes:
 
-TemperatureUnit represents temperature unit data.
+- `DBConnection`: Manages database connections.
+- `TemperatureUnitDAO`: Handles temperature unit database operations.
+- `TempRecordDAO`: Handles conversion history database operations.
 
-TemperatureUnitDAO handles database operations using JDBC.
+### Docker and Jenkins
 
-#### Docker and Jenkins:
+Docker packages the application into a container.
 
-Docker is used to package the application into a container. 
-Jenkins automates building and testing through a pipeline.
+Jenkins automates the build and testing process using a Jenkins pipeline.
 
-### 4. Testing & Quality Assurance Steps
+Kubernetes and Minikube are used for container deployment and testing.
+
+## 4. Database Localization Approach
+
+### Chosen Approach: Separate Translation Table
+
+I implemented database localization using a **separate translation table approach** in MariaDB.
+
+The database contains three main tables:
+
+| Table | Description |
+|---|---|
+| `temperature_unit` | Stores Celsius, Fahrenheit, and Kelvin with their symbols |
+| `unit_translation` | Stores translated unit names and descriptions |
+| `temp_record` | Stores temperature conversion history |
+
+### Database Schema
+
+**temperature_unit**
+
+- `id`: Primary key
+- `name`: Temperature unit name
+- `symbol`: Temperature unit symbol
+
+**unit_translation**
+
+- `id`: Primary key
+- `unit_id`: Foreign key referencing `temperature_unit`
+- `lang`: Language code
+- `name`: Translated unit name
+- `description`: Localized description
+
+**temp_record**
+
+Stores the input temperature, output temperature, unit references, and conversion timestamp.
+
+### Supported Languages
+
+| Language | Code |
+|---|---|
+| English | en |
+| Finnish | fi |
+| Swedish | sv |
+| Japanese | ja |
+| Arabic | ar |
+
+The database contains 15 translation records covering three temperature units across five languages.
+
+### Reasons for Choosing This Approach
+
+I chose the separate translation table approach because it separates language-independent temperature data from translated information.
+
+This avoids creating additional columns for every supported language and reduces unnecessary duplication of temperature unit data.
+
+It also makes the database easier to maintain and extend. New languages can be added by inserting new translation records without changing the existing table structure.
+
+The `unit_id` foreign key connects each translation to the correct temperature unit, maintaining a clear relationship between the tables.
+
+I tested the database using MariaDB SQL queries and verified that temperature units, translations, and conversion history were stored successfully.
+
+## 5. Testing and Quality Assurance
 
 The application uses JUnit 5 for automated testing and JaCoCo for code coverage.
 
-#### Automated Testing:
+### Test Cases
 
-The TemperatureConverterTest class tests the temperature conversion methods.
+- [x] Celsius 0°C to Fahrenheit = 32°F
+- [x] Fahrenheit 212°F to Celsius = 100°C
+- [x] Kelvin 273.15 K to Celsius = 0°C
+- [x] Extreme temperature checking
+- [x] MariaDB connection
+- [x] Saving conversion history
+- [x] Retrieving conversion history
+- [x] JavaFX GUI running through Docker and TigerVNC
 
-#### Test Cases:
+### Testing Commands
 
+Run automated tests:
 
-1. [x] Celsius 0°C to Fahrenheit - 32°F
-2. [x] 
-3. [x] Fahrenheit 212°F to Celsius - 100°C
-4. [x] 
-5. [x] Kelvin 273.15 K to Celsius - 0°C
-6. [x] 
-7. [x] Extreme temperature check - Correct Boolean result
-8. [x] 
-9. [x] Database connection - Successful connection
+```bash
+mvn test
+```
 
-#### Testing Commands:
+Build and test:
 
-##### Run automated tests:
+```bash
+mvn clean install
+```
 
-_mvn test_
+Generate JaCoCo coverage:
 
-##### Build and test the application:
+```bash
+mvn clean verify
+```
 
-_mvn clean install_
+Coverage report location:
 
-##### Generate a code coverage report:
+```text
+target/site/jacoco/index.html
+```
 
-_mvn clean verify_
+### Manual Testing
 
-#### Code Coverage:
+The JavaFX application was tested by entering temperature values, selecting units, converting temperatures, and saving conversion history.
 
-##### JaCoCo generates the code coverage report at:
+Example:
 
-_target/site/jacoco/index.html_
+**30°C → 86°F**
 
-#### Manual Testing:
+The application displayed the correct result, and MariaDB logs confirmed successful saving.
 
-* Launch the JavaFX GUI.
-* Enter temperature values.
-* Verify conversion results.
-* Check database connectivity.
-* Verify data saving and retrieval.
-* Run the application in Docker using an X Server.
+## 6. How to Run
 
-#### Testing Results:
+### Prerequisites
 
-The Maven build and automated tests completed successfully during development. 
-The JavaFX application was also tested with Docker, X Server, and MariaDB.
+- Java JDK 21
+- Apache Maven
+- MariaDB
+- Docker Desktop
+- TigerVNC or another compatible VNC viewer for the Docker GUI
 
-### 5. How to Run
-#### Prerequisites
+### Step 1: Clone the Repository
 
-Install the following:
-
-* Java JDK 21
-* Apache Maven
-* MariaDB
-* Docker Desktop
-* An X Server for running the Docker GUI
-
-#### Step 1: Clone the Repository
-
-Clone the individual assignment repository:
-
+```bash
 git clone https://github.com/NipaDelara/OTP1_inclass1_assignment_Delara.git
+cd OTP1_inclass1_assignment_Delara
+```
 
-Open the project directory.
+### Step 2: Configure MariaDB
 
-#### Step 2: Configure MariaDB
+Create the database:
 
-Start MariaDB and create the database:
-
+```sql
 CREATE DATABASE temperature_converter;
+```
 
-Configure the database connection in the DBConnection class.
+Initialize the database using the project's `init.sql` file.
 
-#### Step 3: Build the Project
+Configure the database connection using the appropriate environment variables or local database settings.
 
-_mvn clean install_
+### Step 3: Build the Project
 
-#### Step 4: Run Unit Tests
+```bash
+mvn clean install
+```
 
-_mvn test_
+### Step 4: Run Unit Tests
 
-#### Step 5: Run the JavaFX Application
+```bash
+mvn test
+```
 
-Open the project in IntelliJ IDEA and run the TemperatureConverterGUI main class.
+### Step 5: Run the JavaFX Application
 
-#### Step 6: Generate Code Coverage
+Open the project in IntelliJ IDEA and run `TemperatureConverterGUI`.
 
-_mvn clean verify_
+Alternatively, run:
 
-_Open target/site/jacoco/index.html to view the coverage report._
+```bash
+mvn javafx:run
+```
 
-#### Step 7: Docker
+### Step 6: Generate Code Coverage
 
-##### Build the Docker image:
+```bash
+mvn clean verify
+```
 
-_docker build -t temperature-converter ._ 
+Open:
 
-Running the graphical application in Docker requires X Server configuration and database connectivity.
+`target/site/jacoco/index.html`
 
-##### Docker Hub Image:
+### Step 7: Docker
 
-https://hub.docker.com/repository/docker/nipa93/temperature-converter/general
+Build the image:
 
-### Conclusion
-This assignment demonstrates Java programming, object-oriented design, graphical user interface development, 
-database integration, automated testing, code coverage, and Docker containerization.
+```bash
+docker build -t temperature-converter .
+```
+
+The graphical application requires a virtual X display and VNC configuration when running inside Docker.
+
+On macOS, the application was successfully tested using Xvfb, x11vnc, and TigerVNC.
+
+### Docker Hub Image
+
+https://hub.docker.com/r/nipa93/temperature-converter
+
+Image:
+
+`nipa93/temperature-converter:latest`
+
+### Step 8: Kubernetes
+
+Start Minikube:
+
+```bash
+minikube start
+```
+
+Deploy using the Kubernetes YAML configuration:
+
+```bash
+kubectl apply -f deployment.yaml
+```
+
+Verify the deployment:
+
+```bash
+kubectl get pods
+```
+
+The expected pod status is `Running`.
+
+The Kubernetes commands should be executed using the deployment file included in the repository.
+
+## 7. Jenkins CI/CD
+
+Jenkins is used to automate the project build and testing workflow.
+
+The pipeline includes:
+
+1. Checkout source code from GitHub.
+2. Run Maven tests.
+3. Build the Java application.
+4. Generate the JaCoCo coverage report.
+5. Build the Docker image.
+6. Push the Docker image to Docker Hub.
+
+The Jenkins pipeline configuration is stored in the `Jenkinsfile`.
+
+## 8. Submission Deliverables
+
+The assignment submission includes:
+
+1. **GitHub Repository:** Source code, `init.sql`, tests, `Jenkinsfile`, `Dockerfile`, Kubernetes YAML configuration, and README.
+2. **Docker Hub Image:** Published Temperature Converter Docker image.
+3. **GUI Screenshots:** JavaFX GUI in English, Japanese, and Arabic, running using an X server.
+4. **Testing and Deployment Screenshots:** Successful Jenkins pipeline, JaCoCo coverage report, and Kubernetes pod status.
+5. **Database Localization Explanation:** Description of the chosen translation table approach, schema, and reasons for choosing it.
+
+## 9. Conclusion
+
+This assignment demonstrates practical experience in Java programming, object-oriented design, JavaFX GUI development, MariaDB database integration, JDBC, multilingual localization, automated testing, code coverage, Docker containerization, Jenkins CI/CD, and Kubernetes.
+
+The Temperature Converter was successfully tested through its JavaFX interface running in Docker, with conversion records saved in MariaDB.

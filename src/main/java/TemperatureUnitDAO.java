@@ -69,4 +69,50 @@ public class TemperatureUnitDAO {
 
         return units;
     }
+
+    // Get localized temperature units from MariaDB.
+    public List<TemperatureUnit> getLocalizedUnits(String language) {
+
+        List<TemperatureUnit> units = new ArrayList<>();
+
+        String sql = """
+            SELECT u.id,
+                   COALESCE(t.name, en.name, u.name) AS name,
+                   u.symbol
+            FROM temperature_unit u
+            LEFT JOIN unit_translation t
+                ON u.id = t.unit_id AND t.lang = ?
+            LEFT JOIN unit_translation en
+                ON u.id = en.unit_id AND en.lang = 'en'
+            ORDER BY u.id
+            """;
+
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement statement =
+                     connection.prepareStatement(sql)) {
+
+            statement.setString(1, language);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+
+                    TemperatureUnit unit = new TemperatureUnit(
+                            resultSet.getInt("id"),
+                            resultSet.getString("name"),
+                            resultSet.getString("symbol")
+                    );
+
+                    units.add(unit);
+                }
+            }
+
+        } catch (SQLException e) {
+            System.err.println(
+                    "Error reading localized units: " + e.getMessage()
+            );
+        }
+
+        return units;
+    }
+
 }
