@@ -5,11 +5,12 @@ pipeline {
     environment {
         DOCKER_IMAGE = 'nipa93/temperature-converter'
         PATH = "/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:${env.PATH}"
+        DB_HOST = '127.0.0.1'
     }
 
     stages {
 
-        //Checkout project from GitHub
+        // Step 1: Checkout project from GitHub
         stage('Checkout') {
             steps {
                 git branch: 'main',
@@ -17,7 +18,18 @@ pipeline {
             }
         }
 
-        //Build project and run JUnit tests using MariaDB
+        // Step 2: Check Java, Maven and Docker
+        stage('Check Tools') {
+            steps {
+                sh '''
+                    java -version
+                    mvn -version
+                    docker --version
+                '''
+            }
+        }
+
+        // Step 3: Build and test with MariaDB
         stage('Build and Test') {
             steps {
                 withCredentials([
@@ -27,37 +39,54 @@ pipeline {
                         passwordVariable: 'DB_PASSWORD'
                     )
                 ]) {
-                    withEnv(['DB_HOST=127.0.0.1']) {
-                        sh 'mvn clean verify'
-                    }
+                    sh '''
+                        mvn -B clean verify
+                    '''
                 }
             }
         }
 
-        //Publish JUnit test results
+        // Step 4: Publish JUnit results
         stage('Publish Test Results') {
             steps {
-                junit '**/target/surefire-reports/*.xml'
+                junit testResults: '**/target/surefire-reports/*.xml',
+                      allowEmptyResults: false
             }
         }
 
-        //Archive JaCoCo coverage report
+        // Step 5: Archive JaCoCo coverage report
         stage('Archive JaCoCo Report') {
             steps {
-                archiveArtifacts artifacts: 'target/site/jacoco/**',
-                                 allowEmptyArchive: false
+                archiveArtifacts(
+                    artifacts: 'target/site/jacoco/**',
+                    allowEmptyArchive: false
+                )
             }
         }
 
-        //Build Docker image for Mac
+        // Step 6: Archive Maven JAR file
+        stage('Archive JAR') {
+            steps {
+                archiveArtifacts(
+                    artifacts: 'target/*.jar',
+                    allowEmptyArchive: false,
+                    fingerprint: true
+                )
+            }
+        }
+
+        // Step 7: Build Docker image
         stage('Build Docker Image') {
             steps {
-                sh 'docker build --platform linux/amd64 -t $DOCKER_IMAGE:latest .'
+                sh '''
+                    docker build --platform linux/amd64 \
+                        -t "$DOCKER_IMAGE:latest" .
+                '''
             }
         }
 
-        // Log in to Docker Hub securely
-        stage('Docker Hub Login') {
+        // Step 8: Push image to Docker Hub
+        stage('Push Docker Image') {
             steps {
                 withCredentials([
                     usernamePassword(
@@ -67,30 +96,31 @@ pipeline {
                     )
                 ]) {
                     sh '''
-                        echo "$DOCKER_PASSWORD" | docker login \
-                        -u "$DOCKER_USER" --password-stdin
+                        set +x
+
+                        echo "$DOCKER_PASSWORD" | \
+                            docker login \
+                            -u "$DOCKER_USER" \
+                            --password-stdin
+
+                        docker push "$DOCKER_IMAGE:latest"
                     '''
                 }
-            }
-        }
-
-        // Step 7: Push Docker image to Docker Hub
-        stage('Push Docker Image') {
-            steps {
-                sh 'docker push $DOCKER_IMAGE:latest'
             }
         }
     }
 
     post {
         always {
-            // Publish test results even if build fails
+            // Publish available test reports
             junit testResults: '**/target/surefire-reports/*.xml',
                   allowEmptyResults: true
 
-            // Archive JaCoCo report if available
-            archiveArtifacts artifacts: 'target/site/jacoco/**',
-                             allowEmptyArchive: true
+            // Archive coverage report if available
+            archiveArtifacts(
+                artifacts: 'target/site/jacoco/**',
+                allowEmptyArchive: true
+            )
         }
 
         success {
