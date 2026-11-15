@@ -1,12 +1,16 @@
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DBConnection {
 
-    // Database configuration for Mac and Docker
+    private static final Logger LOGGER =
+            Logger.getLogger(DBConnection.class.getName());
+
+    // Database configuration
     private static final String HOST =
             System.getenv().getOrDefault("DB_HOST", "localhost");
 
@@ -22,9 +26,12 @@ public class DBConnection {
     private static final String PASSWORD =
             System.getenv("DB_PASSWORD");
 
-    // Connect to MariaDB
-    public static Connection getConnection() throws SQLException {
+    // Prevent creating instances of this utility class.
+    private DBConnection() {
+    }
 
+    // Connect to MariaDB.
+    public static Connection getConnection() throws SQLException {
         if (PASSWORD == null || PASSWORD.isBlank()) {
             throw new SQLException(
                     "DB_PASSWORD environment variable is not configured."
@@ -34,9 +41,8 @@ public class DBConnection {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
-    // Create database tables
+    // Create database tables.
     public static void initializeDatabase() {
-
         String createTemperatureUnitTable = """
                 CREATE TABLE IF NOT EXISTS temperature_unit (
                     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -66,13 +72,13 @@ public class DBConnection {
             statement.execute(createTemperatureUnitTable);
             statement.execute(createTempRecordTable);
 
-            System.out.println(
-                    "MariaDB database initialized successfully."
-            );
+            LOGGER.info("MariaDB database initialized successfully.");
 
         } catch (SQLException e) {
-            System.err.println(
-                    "Database initialization failed: " + e.getMessage()
+            LOGGER.log(
+                    Level.SEVERE,
+                    "Database initialization failed",
+                    e
             );
         }
     }
